@@ -4,6 +4,8 @@ import { LockClosedIcon } from "@heroicons/react/20/solid";
 import { FcGoogle } from "react-icons/fc";
 import Alert from "@mui/material/Alert";
 import Link from "next/link";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useRouter } from "next/router";
 
 interface Props {}
 
@@ -67,6 +69,7 @@ export default function Login({}: Props): ReactElement {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [familyName, setFamilyName] = useState("");
+  const [user, userLoading] = useAuthState(firebase.auth());
 
   // get email and password from user
   const handleEmailChange = (e) => {
@@ -85,10 +88,13 @@ export default function Login({}: Props): ReactElement {
     setFamilyName(e.target.value);
   };
 
+  const router = useRouter();
+
   useEffect(() => {
-    console.log(email);
-    console.log(password);
-  }, []);
+    if (user && !userLoading) {
+      router.push("/");
+    }
+  }, [user, userLoading]);
 
   return (
     <>
