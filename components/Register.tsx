@@ -6,6 +6,8 @@ import Alert from "@mui/material/Alert";
 import Link from "next/link";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useRouter } from "next/router";
+import Image from "next/image";
+import logo from "../public/logo.png";
 
 interface Props {}
 
@@ -111,11 +113,15 @@ export default function Login({}: Props): ReactElement {
           <div className=" bg-white rounded-2xl shadow-xl p-8 lg:px-32">
             <div className="w-full max-w-md space-y-8 ">
               <div>
-                <img
-                  className="mx-auto h-32 w-auto"
-                  src="logo.png"
-                  alt="Qatar 2022"
-                />
+                <div className="flex justify-center items-center">
+                  <Image
+                    src={logo}
+                    alt="Qatar 2022"
+                    width={156}
+                    height={156}
+                    priority
+                  />
+                </div>
                 <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
                   Regístrate
                 </h2>
