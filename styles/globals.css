@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: rgb(249 250 251);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.shadow {
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  background-color: grey;
+  bottom: 0;
+  border-radius: 100%;
+  transform: scaleX(0.8);
+  opacity: 0.6;
+  animation: shadowScale 1s linear infinite;
+}
+
+.gravity {
+  width: 40px;
+  height: 40px;
+  animation: bounce 1s cubic-bezier(0.68, 0.35, 0.29, 0.54) infinite;
+}
+.ball {
+  width: 40px;
+  height: 40px;
+  background-image: url("https://parspng.com/wp-content/uploads/2022/05/Worldcupqatarpng.parspng.com-4.png");
+  background-size: cover;
+  animation: roll 0.7s linear infinite;
+}
+
+@keyframes roll {
+  0% {
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes bounce {
+  0% {
+  }
+  50% {
+    transform: translateY(100px);
+  }
+  100% {
+  }
+}
+@keyframes shadowScale {
+  0% {
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 0.8;
+  }
+  100% {
+  }
+}
