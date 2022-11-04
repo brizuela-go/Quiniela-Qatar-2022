@@ -28,6 +28,15 @@ export default function Login({}: Props): ReactElement {
     });
   }
 
+  const photos = [
+    "https://parspng.com/wp-content/uploads/2022/05/Worldcupqatarpng.parspng.com-4.png",
+    "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1r50NO9EQLfZ2Y3WRrBih6JF2rBJa2qCPMPZ85UL8HM8-hjz1ykE--eBUvaxCTo71ndRZmAmn9oGYKIiD0uTS0C08CLnVfJ4he8f7cYYL7NOcx6LirKt3sHUFF-auHWuRRTklkd_3qwKfyv6IDiZMLQ4kem6tIPAJhwW04zaoCok3LD8GTdDMBAe6lw/s754/La%20eeb.jpg",
+    "https://media.premiumtimesng.com/wp-content/files/2022/10/MSport-World-Cup-1.jpg",
+    "https://cnnespanol.cnn.com/wp-content/uploads/2022/11/221101194952-1-fifa-world-cup-qatar-2022-full-169.jpg?quality=100&strip=info&w=1024",
+  ];
+
+  const randomPhoto = photos[Math.floor(Math.random() * photos.length)];
+
   async function signUpwithEmail() {
     await firebase
       .auth()
@@ -45,6 +54,7 @@ export default function Login({}: Props): ReactElement {
             email: user.email,
             name: `${name} ${familyName}`,
             provider: user.providerData[0].providerId,
+            photoUrl: randomPhoto,
           });
         // ...
       })

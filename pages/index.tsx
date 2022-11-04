@@ -4,13 +4,15 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { createCheckoutSession } from "../stripe/createCheckoutSession";
 import usePremiumStatus from "../stripe/usePremiumStatus";
 import { useRouter } from "next/router";
-import Loader from "../components/Loader";
 
 export default function Home() {
   const [user, userLoading] = useAuthState(firebase.auth());
   const [name, setName] = useState("");
   const userIsPremium = usePremiumStatus(user);
-  const [isShown, setIsShown] = useState(false);
+
+  async function signOut() {
+    await firebase.auth().signOut();
+  }
 
   firebase
     .firestore()
@@ -44,7 +46,10 @@ export default function Home() {
         <div>
           {userIsPremium ? (
             <>
-              <h1>Empieza a llenar tu quiniela</h1>
+              <h1>¡Empieza a llenar tu quiniela, {name.split(" ")[0]}!</h1>
+              <button className="" onClick={signOut}>
+                Cerrar Sesión
+              </button>
             </>
           ) : (
             <div className="animate__animated animate__fadeIn animate__delay-1s">
@@ -72,6 +77,7 @@ export default function Home() {
                 Si ya pagaste en efectivo o depositaste, espera a que tu usuario
                 se dado de alta
               </h3>
+              <button onClick={signOut}>Cerrar Sesión</button>
             </div>
           )}
         </div>

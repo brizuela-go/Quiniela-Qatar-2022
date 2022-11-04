@@ -70,3 +70,8 @@ a {
   100% {
   }
 }
+
+/* All delay classes will take half the time to start */
+:root {
+  --animate-delay: 0.5s;
+}

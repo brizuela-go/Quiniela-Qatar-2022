@@ -1,0 +1,514 @@
+[
+  {
+    "Ronda": 1,
+    "data": [
+      {
+        "Fecha": "20/11",
+        "data": [
+          {
+            "TimeUtc": "10:00",
+            "Location": "Estadio Al Khor",
+            "HomeTeam": "Catar",
+            "AwayTeam": "Ecuador",
+            "Group": "Grupo A",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          }
+        ]
+      },
+      {
+        "Fecha": "21/11",
+        "data": [
+          {
+            "TimeUtc": "07:00",
+            "Location": "Estadio Internacional Jalifa",
+            "HomeTeam": "Inglaterra",
+            "AwayTeam": "Irán",
+            "Group": "Grupo B",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "10:00",
+            "Location": "Estadio Al Thumama",
+            "HomeTeam": "Senegal",
+            "AwayTeam": "Países Bajos",
+            "Group": "Grupo A",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "13:00",
+            "Location": "Estadio Al Rayyan",
+            "HomeTeam": "Estados Unidos",
+            "AwayTeam": "Gales",
+            "Group": "Grupo B",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          }
+        ]
+      },
+      {
+        "Fecha": "22/11",
+        "data": [
+          {
+            "TimeUtc": "04:00",
+            "Location": "Estadio Lusail",
+            "HomeTeam": "Argentina",
+            "AwayTeam": "Arabia Saudita",
+            "Group": "Grupo C",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "07:00",
+            "Location": "Estadio Ciudad de la Educación",
+            "HomeTeam": "Dinamarca",
+            "AwayTeam": "Túnez",
+            "Group": "Grupo D",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "10:00",
+            "Location": "Estadio 974",
+            "HomeTeam": "México",
+            "AwayTeam": "Polonia",
+            "Group": "Grupo C",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "13:00",
+            "Location": "Estadio Al Wakrah",
+            "HomeTeam": "Francia",
+            "AwayTeam": "Australia",
+            "Group": "Grupo D",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          }
+        ]
+      },
+      {
+        "Fecha": "23/11",
+        "data": [
+          {
+            "TimeUtc": "04:00",
+            "Location": "Estadio Al Khor",
+            "HomeTeam": "Marruecos",
+            "AwayTeam": "Croacia",
+            "Group": "Grupo F",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "07:00",
+            "Location": "Estadio Internacional Jalifa",
+            "HomeTeam": "Alemania",
+            "AwayTeam": "Japón",
+            "Group": "Grupo E",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "10:00",
+            "Location": "Estadio Al Thumama",
+            "HomeTeam": "España",
+            "AwayTeam": "Costa Rica",
+            "Group": "Grupo E",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "13:00",
+            "Location": "Estadio Al Rayyan",
+            "HomeTeam": "Bélgica",
+            "AwayTeam": "Canadá",
+            "Group": "Grupo F",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          }
+        ]
+      },
+      {
+        "Fecha": "24/11",
+        "data": [
+          {
+            "TimeUtc": "04:00",
+            "Location": "Estadio Al Wakrah",
+            "HomeTeam": "Suiza",
+            "AwayTeam": "Camerún",
+            "Group": "Grupo G",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "07:00",
+            "Location": "Estadio Ciudad de la Educación",
+            "HomeTeam": "Uruguay",
+            "AwayTeam": "Corea del Sur",
+            "Group": "Grupo H",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "10:00",
+            "Location": "Estadio 974",
+            "HomeTeam": "Portugal",
+            "AwayTeam": "Ghana",
+            "Group": "Grupo H",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "13:00",
+            "Location": "Estadio Lusail",
+            "HomeTeam": "Brasil",
+            "AwayTeam": "Serbia",
+            "Group": "Grupo G",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Ronda": 2,
+    "data": [
+      {
+        "Fecha": "25/11",
+        "data": [
+          {
+            "TimeUtc": "04:00",
+            "Location": "Estadio Al Rayyan",
+            "HomeTeam": "Gales",
+            "AwayTeam": "Irán",
+            "Group": "Grupo B",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "07:00",
+            "Location": "Estadio Al Thumama",
+            "HomeTeam": "Catar",
+            "AwayTeam": "Senegal",
+            "Group": "Grupo A",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "10:00",
+            "Location": "Estadio Internacional Jalifa",
+            "HomeTeam": "Países Bajos",
+            "AwayTeam": "Ecuador",
+            "Group": "Grupo A",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "13:00",
+            "Location": "Estadio Al Khor",
+            "HomeTeam": "Inglaterra",
+            "AwayTeam": "Estados Unidos",
+            "Group": "Grupo B",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          }
+        ]
+      },
+      {
+        "Fecha": "26/11",
+        "data": [
+          {
+            "TimeUtc": "04:00",
+            "Location": "Estadio Al Wakrah",
+            "HomeTeam": "Túnez",
+            "AwayTeam": "Australia",
+            "Group": "Grupo D",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "07:00",
+            "Location": "Estadio Ciudad de la Educación",
+            "HomeTeam": "Polonia",
+            "AwayTeam": "Arabia Saudita",
+            "Group": "Grupo C",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "10:00",
+            "Location": "Estadio 974",
+            "HomeTeam": "Francia",
+            "AwayTeam": "Dinamarca",
+            "Group": "Grupo D",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "13:00",
+            "Location": "Estadio Lusail",
+            "HomeTeam": "Argentina",
+            "AwayTeam": "México",
+            "Group": "Grupo C",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          }
+        ]
+      },
+      {
+        "Fecha": "27/11",
+        "data": [
+          {
+            "TimeUtc": "04:00",
+            "Location": "Estadio Al Rayyan",
+            "HomeTeam": "Japón",
+            "AwayTeam": "Costa Rica",
+            "Group": "Grupo E",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "07:00",
+            "Location": "Estadio Al Thumama",
+            "HomeTeam": "Bélgica",
+            "AwayTeam": "Marruecos",
+            "Group": "Grupo F",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "10:00",
+            "Location": "Estadio Internacional Jalifa",
+            "HomeTeam": "Croacia",
+            "AwayTeam": "Canadá",
+            "Group": "Grupo F",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "13:00",
+            "Location": "Estadio Al Khor",
+            "HomeTeam": "España",
+            "AwayTeam": "Alemania",
+            "Group": "Grupo E",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          }
+        ]
+      },
+      {
+        "Fecha": "28/11",
+        "data": [
+          {
+            "TimeUtc": "04:00",
+            "Location": "Estadio Al Wakrah",
+            "HomeTeam": "Camerún",
+            "AwayTeam": "Serbia",
+            "Group": "Grupo G",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "07:00",
+            "Location": "Estadio Ciudad de la Educación",
+            "HomeTeam": "Corea del Sur",
+            "AwayTeam": "Ghana",
+            "Group": "Grupo H",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "10:00",
+            "Location": "Estadio 974",
+            "HomeTeam": "Brasil",
+            "AwayTeam": "Suiza",
+            "Group": "Grupo G",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "13:00",
+            "Location": "Estadio Lusail",
+            "HomeTeam": "Portugal",
+            "AwayTeam": "Uruguay",
+            "Group": "Grupo G",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Ronda": 3,
+    "data": [
+      {
+        "Fecha": "29/11",
+        "data": [
+          {
+            "TimeUtc": "09:00",
+            "Location": "Estadio Internacional Jalifa",
+            "HomeTeam": "Ecuador",
+            "AwayTeam": "Senegal",
+            "Group": "Grupo A",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "09:00",
+            "Location": "Estadio Al Khor",
+            "HomeTeam": "Países Bajos",
+            "AwayTeam": "Catar",
+            "Group": "Grupo A",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "13:00",
+            "Location": "Estadio Al Thumama",
+            "HomeTeam": "Irán",
+            "AwayTeam": "Estados Unidos",
+            "Group": "Grupo B",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "13:00",
+            "Location": "Estadio Al Rayyan",
+            "HomeTeam": "Gales",
+            "AwayTeam": "Inglaterra",
+            "Group": "Grupo B",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          }
+        ]
+      },
+      {
+        "Fecha": "30/11",
+        "data": [
+          {
+            "TimeUtc": "09:00",
+            "Location": "Estadio Ciudad de la Educación",
+            "HomeTeam": "Túnez",
+            "AwayTeam": "Francia",
+            "Group": "Grupo D",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "09:00",
+            "Location": "Estadio Al Wakrah",
+            "HomeTeam": "Australia",
+            "AwayTeam": "Dinamarca",
+            "Group": "Grupo D",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "13:00",
+            "Location": "Estadio 974",
+            "HomeTeam": "Polonia",
+            "AwayTeam": "Argentina",
+            "Group": "Grupo C",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "13:00",
+            "Location": "Estadio Lusail",
+            "HomeTeam": "Arabia Saudita",
+            "AwayTeam": "México",
+            "Group": "Grupo C",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          }
+        ]
+      },
+      {
+        "Fecha": "01/12",
+        "data": [
+          {
+            "TimeUtc": "09:00",
+            "Location": "Estadio Al Rayyan",
+            "HomeTeam": "Croacia",
+            "AwayTeam": "Bélgica",
+            "Group": "Grupo F",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "09:00",
+            "Location": "Estadio Al Thumama",
+            "HomeTeam": "Canadá",
+            "AwayTeam": "Marruecos",
+            "Group": "Grupo F",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "13:00",
+            "Location": "Estadio Internacional Jalifa",
+            "HomeTeam": "Japón",
+            "AwayTeam": "España",
+            "Group": "Grupo E",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "13:00",
+            "Location": "Estadio Al Khor",
+            "HomeTeam": "Costa Rica",
+            "AwayTeam": "Alemania",
+            "Group": "Grupo E",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          }
+        ]
+      },
+      {
+        "Fecha": "02/12",
+        "data": [
+          {
+            "TimeUtc": "09:00",
+            "Location": "Estadio Ciudad de la Educación",
+            "HomeTeam": "Corea del Sur",
+            "AwayTeam": "Portugal",
+            "Group": "Grupo H",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "09:00",
+            "Location": "Estadio Al Wakrah",
+            "HomeTeam": "Ghana",
+            "AwayTeam": "Uruguay",
+            "Group": "Grupo H",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "13:00",
+            "Location": "Estadio 974",
+            "HomeTeam": "Serbia",
+            "AwayTeam": "Suiza",
+            "Group": "Grupo G",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          },
+          {
+            "TimeUtc": "13:00",
+            "Location": "Estadio Lusail",
+            "HomeTeam": "Camerún",
+            "AwayTeam": "Brasil",
+            "Group": "Grupo G",
+            "HomeTeamScore": null,
+            "AwayTeamScore": null
+          }
+        ]
+      }
+    ]
+  }
+]
