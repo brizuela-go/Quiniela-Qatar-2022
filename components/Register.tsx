@@ -8,6 +8,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import logo from "../public/logo.png";
+import toast, { Toaster } from "react-hot-toast";
 
 interface Props {}
 
@@ -62,17 +63,22 @@ export default function Login({}: Props): ReactElement {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log({ errorCode, errorMessage });
-        errorMessage ===
-        "The email address is already in use by another account."
-          ? setErrorMessage("Este correo ya está en uso")
-          : errorMessage === "The email address is badly formatted."
-          ? setErrorMessage("La dirección de correo está mal formateada")
-          : errorMessage ===
-            "The password is invalid or the user does not have a password."
-          ? setErrorMessage(
-              "La contraseña es inválida, el usuario no tiene una contraseña, o el usuario inicio sesión con Google."
-            )
-          : setErrorMessage(errorMessage);
+        setErrorMessage(errorMessage);
+
+        const translate = {
+          "The email address is already in use by another account.":
+            "Este correo ya está en uso",
+          "The password is invalid or the user does not have a password.":
+            "La contraseña no es válida, el usuario no tiene una contraseña o el usuario inicio sesión con Google.",
+          "The email address is badly formatted.":
+            "El formato del correo electrónico es incorrecto.",
+          "The password must be 6 characters long or more.":
+            "La contraseña debe tener 6 caracteres o más.",
+        };
+
+        setTimeout(() => {
+          toast.error(translate[errorMessage]);
+        }, 100);
       });
   }
 
@@ -110,14 +116,7 @@ export default function Login({}: Props): ReactElement {
 
   return (
     <>
-      {errorMessage && (
-        <Alert
-          className="flex justify-center items-center animate__animated animate__fadeIn"
-          severity="error"
-        >
-          {errorMessage}
-        </Alert>
-      )}
+      {errorMessage && <Toaster position="top-center" reverseOrder={false} />}
       <div className="h-screen">
         <div className="flex min-h-full items-center justify-center">
           <div className=" bg-white rounded-2xl shadow-xl p-8 lg:px-32">

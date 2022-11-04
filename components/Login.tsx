@@ -53,7 +53,9 @@ export default function Login({}: Props): ReactElement {
           "The email address is badly formatted.":
             "El formato del correo electrónico es incorrecto.",
         };
-        toast.error(translate[errorMessage]);
+        setTimeout(() => {
+          toast.error(translate[errorMessage]);
+        }, 100);
       });
   }
 
@@ -81,16 +83,7 @@ export default function Login({}: Props): ReactElement {
 
   return (
     <>
-      {errorMessage && (
-        // <Alert
-        //   className="flex justify-center items-center animate__animated animate__fadeIn mt-12"
-        //   severity="error"
-        // >
-        //   {errorMessage}
-        // </Alert>
-
-        <Toaster position="top-center" reverseOrder={false} />
-      )}
+      {errorMessage && <Toaster position="top-center" reverseOrder={false} />}
       <div className="h-screen">
         <div className="flex min-h-full items-center justify-center">
           <div className=" bg-white rounded-2xl shadow-xl p-8 lg:px-32">
