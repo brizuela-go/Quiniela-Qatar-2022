@@ -8,6 +8,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import logo from "../public/logo.png";
+import toast, { Toaster } from "react-hot-toast";
 
 interface Props {}
 
@@ -41,18 +42,18 @@ export default function Login({}: Props): ReactElement {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        setErrorMessage(errorMessage);
+
         console.log({ errorCode, errorMessage });
-        errorMessage ===
-        "There is no user record corresponding to this identifier. The user may have been deleted."
-          ? setErrorMessage("No existe un usuario con ese correo electrónico.")
-          : errorMessage === "The email address is badly formatted."
-          ? setErrorMessage("La dirección de correo está mal formateada")
-          : errorMessage ===
-            "The password is invalid or the user does not have a password."
-          ? setErrorMessage(
-              "La contraseña es inválida, el usuario no tiene una contraseña, o el usuario inicio sesión con Google."
-            )
-          : setErrorMessage(errorMessage);
+        const translate = {
+          "There is no user record corresponding to this identifier. The user may have been deleted.":
+            "No hay ningún registro de usuario que corresponda a este identificador. Es posible que el usuario haya sido eliminado.",
+          "The password is invalid or the user does not have a password.":
+            "La contraseña no es válida, el usuario no tiene una contraseña o el usuario inicio sesión con Google.",
+          "The email address is badly formatted.":
+            "El formato del correo electrónico es incorrecto.",
+        };
+        toast.error(translate[errorMessage]);
       });
   }
 
@@ -78,20 +79,17 @@ export default function Login({}: Props): ReactElement {
     setPassword(e.target.value);
   };
 
-  useEffect(() => {
-    console.log(email);
-    console.log(password);
-  }, []);
-
   return (
     <>
       {errorMessage && (
-        <Alert
-          className="flex justify-center items-center animate__animated animate__fadeIn"
-          severity="error"
-        >
-          {errorMessage}
-        </Alert>
+        // <Alert
+        //   className="flex justify-center items-center animate__animated animate__fadeIn mt-12"
+        //   severity="error"
+        // >
+        //   {errorMessage}
+        // </Alert>
+
+        <Toaster position="top-center" reverseOrder={false} />
       )}
       <div className="h-screen">
         <div className="flex min-h-full items-center justify-center">
@@ -132,7 +130,9 @@ export default function Login({}: Props): ReactElement {
                       type="email"
                       autoComplete="email"
                       required
-                      className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-[#630E2B] focus:outline-none focus:ring-[#630E2B] sm:text-sm"
+                      className={`relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-[#630E2B] focus:outline-none focus:ring-[#630E2B] sm:text-sm ${
+                        errorMessage && "border-red-700 ring-red-500 bg-red-50"
+                      }`}
                       placeholder="Correo"
                       onChange={handleEmailChange}
                     />
@@ -147,7 +147,9 @@ export default function Login({}: Props): ReactElement {
                       type="password"
                       autoComplete="current-password"
                       required
-                      className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-[#630E2B] focus:outline-none focus:ring-[#630E2B] sm:text-sm"
+                      className={`relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-[#630E2B] focus:outline-none focus:ring-[#630E2B] sm:text-sm ${
+                        errorMessage && "border-red-700 ring-red-500 bg-red-50"
+                      }`}
                       placeholder="Contraseña"
                       onChange={handlePasswordChange}
                     />
