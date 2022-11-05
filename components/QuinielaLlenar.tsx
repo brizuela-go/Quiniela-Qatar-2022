@@ -11,13 +11,13 @@ const QuinielaLlenar = ({ data }) => {
           <h2>Ronda {ronda.Ronda}</h2>
 
           {ronda.data.map((fecha, i) => (
-            <div>
+            <div key={i}>
               <div key={i}>
                 <h3>Fecha: {ronda.data[i].Fecha}</h3>
               </div>
               {ronda.data[i].data.map((partido, j) => (
                 <div key={j}>
-                  <div>
+                  <div key={j}>
                     <h4>Hora: {partido["TimeUtc"]}</h4>
                   </div>
                 </div>
