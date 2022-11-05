@@ -86,7 +86,7 @@ export default function Home() {
               <div className="flex flex-col items-center justify-center h-full ">
                 <div className="bg-white rounded-lg shadow-xl p-10 animate__animated animate__fadeIn animate__delay-2s mx-4">
                   <h1 className="lg:text-4xl text-3xl font-bold mb-5 animate__animated animate__fadeIn animate__delay-3s text-center">
-                    ¡Hola, {name}!
+                    ¡Hola, {name.split(" ")[0]}!
                   </h1>
                   <p className="text-gray-700 mb-5 text-center text-base animate__animated animate__fadeIn animate__delay-3s">
                     <Typewriter
@@ -111,27 +111,6 @@ export default function Home() {
                         loop: true,
                       }}
                     />
-                    {/* <Typed
-                      strings={[
-                        "¡Bienvenid@ a la Quiniela de Arturo para Qatar 2022!",
-                        `¡Ya van ${users} usuarios registrados!`,
-                        "Entre más usuarios se registren, mayor será el premio.",
-                        `¡El premio para el primer lugar es de $${Math.round(
-                          users * 225 * 0.65
-                        )} pesos!`,
-                        `¡El premio para el segundo lugar es de $${Math.round(
-                          users * 225 * 0.225
-                        )} pesos!`,
-                        `¡El premio para el tercer lugar es de $${Math.round(
-                          users * 225 * 0.125
-                        )} pesos!`,
-                      ]}
-                      typeSpeed={25}
-                      backSpeed={35}
-                      backDelay={2000}
-                      startDelay={1500}
-                      loop
-                    ></Typed> */}
                   </p>
                   <div className="flex justify-center gap-4">
                     <button
