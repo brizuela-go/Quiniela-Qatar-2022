@@ -115,7 +115,13 @@ export default function Home() {
                   <div className="flex justify-center gap-4">
                     <button
                       className=" bg-gradient-to-r from-violet-600 to-violet-800 hover:bg-blue-600 text-white font-bold py-2 px-5 lg:px-8 rounded shadow-lg hover:shadow-xl transition duration-200 hover:via-violet-700 hover:to-violet-900 focus:from-violet-800 focus:to-violet-900 animate__animated animate__fadeIn animate__delay-5s text-sm"
-                      onClick={() => createCheckoutSession(user.uid)}
+                      onClick={() =>
+                        toast.promise(createCheckoutSession(user.uid), {
+                          loading: "Redireccionando al pago...",
+                          success: "Redireccionando",
+                          error: "Error",
+                        })
+                      }
                     >
                       Pagar con Tarjeta
                     </button>

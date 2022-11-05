@@ -1,6 +1,5 @@
 import firebase from "../firebase/firebaseClient";
 import initializeStripe from "./initializeStripe";
-import toast from "react-hot-toast";
 
 export async function createCheckoutSession(uid: string) {
   const firestore = firebase.firestore();
@@ -25,11 +24,7 @@ export async function createCheckoutSession(uid: string) {
       // Init Stripe
       const stripe = await initializeStripe();
       stripe.redirectToCheckout({ sessionId });
-      toast.promise(checkoutSessionRef, {
-        loading: "Redireccionando al pago...",
-        success: "Redireccionando",
-        error: "Error",
-      });
+
   
     }
   });
