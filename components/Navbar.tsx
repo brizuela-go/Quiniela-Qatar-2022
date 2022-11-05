@@ -6,11 +6,11 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import firebase from "../firebase/firebaseClient";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { Router, useRouter } from "next/router";
 
 const navigation = [
   { name: "Inicio", href: "/", current: true },
-  { name: "Team", href: "#", current: false },
+  { name: "Mi Quiniela", href: "/quiniela", current: false },
   { name: "Projects", href: "#", current: false },
   { name: "Calendar", href: "#", current: false },
 ];
@@ -72,7 +72,7 @@ export default function Navbar({ _user, userPhoto }) {
                       <Link href={item.href} key={item.name}>
                         <a
                           className={classNames(
-                            item.current
+                            router.pathname === item.href
                               ? "bg-gray-200  text-gray-700 cursor-pointer"
                               : " text-gray-700 hover:bg-gray-300 hover:text-gray-800 cursor-pointer",
                             "px-3 py-2 rounded-md text-sm font-medium cursor-pointer"

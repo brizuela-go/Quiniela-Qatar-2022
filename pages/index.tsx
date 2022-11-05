@@ -25,10 +25,6 @@ export default function Home() {
   const [name, setName] = useState("");
   const userIsPremium = usePremiumStatus(user);
 
-  async function signOut() {
-    await firebase.auth().signOut();
-  }
-
   // get lenght of users collection in firestore
   const [users, setUsers] = useState(0);
   useEffect(() => {
@@ -76,9 +72,6 @@ export default function Home() {
           {userIsPremium ? (
             <div>
               <h1>¡Empieza a llenar tu quiniela, {name.split(" ")[0]}!</h1>
-              <button className="" onClick={signOut}>
-                Cerrar Sesión
-              </button>
             </div>
           ) : (
             <div className="animate__animated animate__fadeIn animate__delay-2s bg-[url('/cup.jpg')] bg-cover bg-fixed bg-center h-screen">
