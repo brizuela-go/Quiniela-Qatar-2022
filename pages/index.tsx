@@ -4,7 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { createCheckoutSession } from "../stripe/createCheckoutSession";
 import usePremiumStatus from "../stripe/usePremiumStatus";
 import { useRouter } from "next/router";
-import Typed from "react-typed";
+import Typewriter from "typewriter-effect";
 import Image from "next/image";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -85,11 +85,33 @@ export default function Home() {
               {/* card */}
               <div className="flex flex-col items-center justify-center h-full ">
                 <div className="bg-white rounded-lg shadow-xl p-10 animate__animated animate__fadeIn animate__delay-1s mx-4">
-                  <h1 className="lg:text-4xl text-3xl font-bold mb-5 animate__animated animate__fadeIn animate__delay-3s text-center">
+                  <h1 className="lg:text-4xl text-3xl font-bold mb-5 animate__animated animate__fadeIn animate__delay-2s text-center">
                     ¡Hola, {name}!
                   </h1>
-                  <p className="text-gray-700 mb-5 text-center text-base">
-                    <Typed
+                  <p className="text-gray-700 mb-5 text-center text-base animate__animated animate__fadeIn animate__delay-2s">
+                    <Typewriter
+                      options={{
+                        strings: [
+                          "¡Bienvenid@ a la Quiniela de Arturo para Qatar 2022!",
+                          `¡Ya van ${users} usuarios registrados!`,
+                          "Entre más usuarios se registren, mejores serán los premios.",
+                          `¡El premio para el primer lugar es de $${Math.round(
+                            users * 225 * 0.65
+                          )} pesos!`,
+                          `¡El premio para el segundo lugar es de $${Math.round(
+                            users * 225 * 0.225
+                          )} pesos!`,
+                          `¡El premio para el tercer lugar es de $${Math.round(
+                            users * 225 * 0.125
+                          )} pesos!`,
+                        ],
+                        autoStart: true,
+                        delay: 40,
+                        deleteSpeed: 45,
+                        loop: true,
+                      }}
+                    />
+                    {/* <Typed
                       strings={[
                         "¡Bienvenid@ a la Quiniela de Arturo para Qatar 2022!",
                         `¡Ya van ${users} usuarios registrados!`,
@@ -109,7 +131,7 @@ export default function Home() {
                       backDelay={2000}
                       startDelay={1500}
                       loop
-                    ></Typed>
+                    ></Typed> */}
                   </p>
                   <div className="flex justify-center gap-4">
                     <button
