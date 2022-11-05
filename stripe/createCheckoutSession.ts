@@ -25,7 +25,11 @@ export async function createCheckoutSession(uid: string) {
       // Init Stripe
       const stripe = await initializeStripe();
       stripe.redirectToCheckout({ sessionId });
-      toast.loading("Redireccionando al pago...");
+      toast.promise(checkoutSessionRef, {
+        loading: "Redireccionando al pago...",
+        success: "Redireccionando",
+        error: "Error",
+      });
   
     }
   });
