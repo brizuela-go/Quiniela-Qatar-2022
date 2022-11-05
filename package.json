@@ -23,7 +23,9 @@
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.6.0",
     "react-loader-spinner": "^5.3.4",
+    "react-paypal-button-v2": "^2.6.3",
     "react-toastify": "^9.1.1",
+    "react-typed": "^1.2.0",
     "stripe": "^10.15.0"
   },
   "devDependencies": {

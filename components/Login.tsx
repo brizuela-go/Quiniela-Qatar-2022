@@ -49,7 +49,7 @@ export default function Login({}: Props): ReactElement {
           "There is no user record corresponding to this identifier. The user may have been deleted.":
             "No hay ningún registro de usuario que corresponda a este identificador. Es posible que el usuario haya sido eliminado.",
           "The password is invalid or the user does not have a password.":
-            "La contraseña no es válida, el usuario no tiene una contraseña o el usuario inicio sesión con Google.",
+            "La contraseña no es válida, el usuario no está registrado o el usuario está registrado con Google.",
           "The email address is badly formatted.":
             "El formato del correo electrónico es incorrecto.",
         };
@@ -123,9 +123,8 @@ export default function Login({}: Props): ReactElement {
                       type="email"
                       autoComplete="email"
                       required
-                      className={`relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-[#630E2B] focus:outline-none focus:ring-[#630E2B] sm:text-sm ${
-                        errorMessage && "border-red-700 ring-red-500 bg-red-50"
-                      }`}
+                      className={`relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-[#630E2B] focus:outline-none focus:ring-[#630E2B] sm:text-sm 
+                      `}
                       placeholder="Correo"
                       onChange={handleEmailChange}
                     />
@@ -140,9 +139,7 @@ export default function Login({}: Props): ReactElement {
                       type="password"
                       autoComplete="current-password"
                       required
-                      className={`relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-[#630E2B] focus:outline-none focus:ring-[#630E2B] sm:text-sm ${
-                        errorMessage && "border-red-700 ring-red-500 bg-red-50"
-                      }`}
+                      className={`relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-[#630E2B] focus:outline-none focus:ring-[#630E2B] sm:text-sm`}
                       placeholder="Contraseña"
                       onChange={handlePasswordChange}
                     />

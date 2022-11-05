@@ -68,11 +68,11 @@ export default function Login({}: Props): ReactElement {
         const translate = {
           "The email address is already in use by another account.":
             "Este correo ya está en uso",
-          "The password is invalid or the user does not have a password.":
-            "La contraseña no es válida, el usuario no tiene una contraseña o el usuario inicio sesión con Google.",
           "The email address is badly formatted.":
             "El formato del correo electrónico es incorrecto.",
           "The password must be 6 characters long or more.":
+            "La contraseña debe tener 6 caracteres o más.",
+          "Password should be at least 6 characters":
             "La contraseña debe tener 6 caracteres o más.",
         };
 
