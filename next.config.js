@@ -8,6 +8,7 @@ module.exports = {
       "blogger.googleusercontent.com",
       "media.premiumtimesng.com",
       "cnnespanol.cnn.com",
+      "media2.giphy.com",
     ],
   },
 };
