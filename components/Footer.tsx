@@ -5,9 +5,9 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <div className="p-4 bg-white md:px-6 md:py-8 mt-96 ">
-      <div className="sm:flex sm:items-center sm:justify-between">
+      <div className="sm:flex sm:items-center sm:justify-around">
         <Link href="/">
-          <a className="flex items-center mb-4 sm:mb-0">
+          <a className="flex justify-center items-center mb-4 sm:mb-0">
             <Image
               width={32}
               height={32}
@@ -17,10 +17,10 @@ const Footer = () => {
             />
           </a>
         </Link>
-        <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 ">
+        <ul className="flex flex-wrap items-center justify-center mb-6 text-sm text-gray-500 sm:mb-0 ">
           <li>
-            <a href="#" className="hover:underline">
-              Contact
+            <a href="https://wa.me/522213321516" className="hover:underline">
+              Contacto
             </a>
           </li>
         </ul>

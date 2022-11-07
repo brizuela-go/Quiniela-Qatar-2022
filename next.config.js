@@ -10,6 +10,7 @@ module.exports = {
       "cnnespanol.cnn.com",
       "media2.giphy.com",
       "js.stripe.com",
+      "ssl.gstatic.com",
     ],
   },
 };

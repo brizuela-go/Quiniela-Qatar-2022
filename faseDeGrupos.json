@@ -12,7 +12,8 @@
             "AwayTeam": "Ecuador",
             "Group": "Grupo A",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 1
           }
         ]
       },
@@ -26,7 +27,8 @@
             "AwayTeam": "Irán",
             "Group": "Grupo B",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 2
           },
           {
             "TimeUtc": "10:00",
@@ -35,7 +37,8 @@
             "AwayTeam": "Países Bajos",
             "Group": "Grupo A",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 3
           },
           {
             "TimeUtc": "13:00",
@@ -44,7 +47,8 @@
             "AwayTeam": "Gales",
             "Group": "Grupo B",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 4
           }
         ]
       },
@@ -58,7 +62,8 @@
             "AwayTeam": "Arabia Saudita",
             "Group": "Grupo C",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 5
           },
           {
             "TimeUtc": "07:00",
@@ -67,7 +72,8 @@
             "AwayTeam": "Túnez",
             "Group": "Grupo D",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 6
           },
           {
             "TimeUtc": "10:00",
@@ -76,7 +82,8 @@
             "AwayTeam": "Polonia",
             "Group": "Grupo C",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 7
           },
           {
             "TimeUtc": "13:00",
@@ -85,7 +92,8 @@
             "AwayTeam": "Australia",
             "Group": "Grupo D",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 8
           }
         ]
       },
@@ -99,7 +107,8 @@
             "AwayTeam": "Croacia",
             "Group": "Grupo F",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 9
           },
           {
             "TimeUtc": "07:00",
@@ -108,7 +117,8 @@
             "AwayTeam": "Japón",
             "Group": "Grupo E",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 10
           },
           {
             "TimeUtc": "10:00",
@@ -117,7 +127,8 @@
             "AwayTeam": "Costa Rica",
             "Group": "Grupo E",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 11
           },
           {
             "TimeUtc": "13:00",
@@ -126,7 +137,8 @@
             "AwayTeam": "Canadá",
             "Group": "Grupo F",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 12
           }
         ]
       },
@@ -140,7 +152,8 @@
             "AwayTeam": "Camerún",
             "Group": "Grupo G",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 13
           },
           {
             "TimeUtc": "07:00",
@@ -149,7 +162,8 @@
             "AwayTeam": "Corea del Sur",
             "Group": "Grupo H",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 14
           },
           {
             "TimeUtc": "10:00",
@@ -158,7 +172,8 @@
             "AwayTeam": "Ghana",
             "Group": "Grupo H",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 15
           },
           {
             "TimeUtc": "13:00",
@@ -167,7 +182,8 @@
             "AwayTeam": "Serbia",
             "Group": "Grupo G",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 16
           }
         ]
       }
@@ -186,7 +202,8 @@
             "AwayTeam": "Irán",
             "Group": "Grupo B",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 17
           },
           {
             "TimeUtc": "07:00",
@@ -195,7 +212,8 @@
             "AwayTeam": "Senegal",
             "Group": "Grupo A",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 18
           },
           {
             "TimeUtc": "10:00",
@@ -204,7 +222,8 @@
             "AwayTeam": "Ecuador",
             "Group": "Grupo A",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 19
           },
           {
             "TimeUtc": "13:00",
@@ -213,7 +232,8 @@
             "AwayTeam": "Estados Unidos",
             "Group": "Grupo B",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 20
           }
         ]
       },
@@ -227,7 +247,8 @@
             "AwayTeam": "Australia",
             "Group": "Grupo D",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 21
           },
           {
             "TimeUtc": "07:00",
@@ -236,7 +257,8 @@
             "AwayTeam": "Arabia Saudita",
             "Group": "Grupo C",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 22
           },
           {
             "TimeUtc": "10:00",
@@ -245,7 +267,8 @@
             "AwayTeam": "Dinamarca",
             "Group": "Grupo D",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 23
           },
           {
             "TimeUtc": "13:00",
@@ -254,7 +277,8 @@
             "AwayTeam": "México",
             "Group": "Grupo C",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 24
           }
         ]
       },
@@ -268,7 +292,8 @@
             "AwayTeam": "Costa Rica",
             "Group": "Grupo E",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 25
           },
           {
             "TimeUtc": "07:00",
@@ -277,7 +302,8 @@
             "AwayTeam": "Marruecos",
             "Group": "Grupo F",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 26
           },
           {
             "TimeUtc": "10:00",
@@ -286,7 +312,8 @@
             "AwayTeam": "Canadá",
             "Group": "Grupo F",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 27
           },
           {
             "TimeUtc": "13:00",
@@ -295,7 +322,8 @@
             "AwayTeam": "Alemania",
             "Group": "Grupo E",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 28
           }
         ]
       },
@@ -309,7 +337,8 @@
             "AwayTeam": "Serbia",
             "Group": "Grupo G",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 29
           },
           {
             "TimeUtc": "07:00",
@@ -318,7 +347,8 @@
             "AwayTeam": "Ghana",
             "Group": "Grupo H",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 30
           },
           {
             "TimeUtc": "10:00",
@@ -327,7 +357,8 @@
             "AwayTeam": "Suiza",
             "Group": "Grupo G",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 31
           },
           {
             "TimeUtc": "13:00",
@@ -336,7 +367,8 @@
             "AwayTeam": "Uruguay",
             "Group": "Grupo G",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 32
           }
         ]
       }
@@ -355,7 +387,8 @@
             "AwayTeam": "Senegal",
             "Group": "Grupo A",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 33
           },
           {
             "TimeUtc": "09:00",
@@ -364,7 +397,8 @@
             "AwayTeam": "Catar",
             "Group": "Grupo A",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 34
           },
           {
             "TimeUtc": "13:00",
@@ -373,7 +407,8 @@
             "AwayTeam": "Estados Unidos",
             "Group": "Grupo B",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 35
           },
           {
             "TimeUtc": "13:00",
@@ -382,7 +417,8 @@
             "AwayTeam": "Inglaterra",
             "Group": "Grupo B",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 36
           }
         ]
       },
@@ -396,7 +432,8 @@
             "AwayTeam": "Francia",
             "Group": "Grupo D",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 37
           },
           {
             "TimeUtc": "09:00",
@@ -405,7 +442,8 @@
             "AwayTeam": "Dinamarca",
             "Group": "Grupo D",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 38
           },
           {
             "TimeUtc": "13:00",
@@ -414,7 +452,8 @@
             "AwayTeam": "Argentina",
             "Group": "Grupo C",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 39
           },
           {
             "TimeUtc": "13:00",
@@ -423,7 +462,8 @@
             "AwayTeam": "México",
             "Group": "Grupo C",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 40
           }
         ]
       },
@@ -437,7 +477,8 @@
             "AwayTeam": "Bélgica",
             "Group": "Grupo F",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 41
           },
           {
             "TimeUtc": "09:00",
@@ -446,7 +487,8 @@
             "AwayTeam": "Marruecos",
             "Group": "Grupo F",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 42
           },
           {
             "TimeUtc": "13:00",
@@ -455,7 +497,8 @@
             "AwayTeam": "España",
             "Group": "Grupo E",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 43
           },
           {
             "TimeUtc": "13:00",
@@ -464,7 +507,8 @@
             "AwayTeam": "Alemania",
             "Group": "Grupo E",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 44
           }
         ]
       },
@@ -478,7 +522,8 @@
             "AwayTeam": "Portugal",
             "Group": "Grupo H",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 45
           },
           {
             "TimeUtc": "09:00",
@@ -487,7 +532,8 @@
             "AwayTeam": "Uruguay",
             "Group": "Grupo H",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 46
           },
           {
             "TimeUtc": "13:00",
@@ -496,7 +542,8 @@
             "AwayTeam": "Suiza",
             "Group": "Grupo G",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 47
           },
           {
             "TimeUtc": "13:00",
@@ -505,7 +552,8 @@
             "AwayTeam": "Brasil",
             "Group": "Grupo G",
             "HomeTeamScore": null,
-            "AwayTeamScore": null
+            "AwayTeamScore": null,
+            "partido": 48
           }
         ]
       }
