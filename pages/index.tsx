@@ -73,7 +73,7 @@ export default function Home() {
       <Toaster position="top-center" reverseOrder={false} />
 
       {user && !userLoading && (
-        <div>
+        <div className="animate__animated animate__fadeIn animate__delay-2s">
           {userIsPremium ? (
             <div>
               <h1>¡Empieza a llenar tu quiniela, {name.split(" ")[0]}!</h1>
