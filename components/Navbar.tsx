@@ -44,7 +44,7 @@ export default function Navbar({ _user, userPhoto }) {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <a href={"/"}>
+                  <Link href={"/"}>
                     <div className="block h-8 w-auto lg:hidden cursor-pointer">
                       <Image
                         width={38}
@@ -53,8 +53,8 @@ export default function Navbar({ _user, userPhoto }) {
                         alt="Logo Qatar"
                       />
                     </div>
-                  </a>
-                  <a href={"/"}>
+                  </Link>
+                  <Link href={"/"}>
                     <div className="hidden h-8 w-auto lg:block cursor-pointer">
                       <Image
                         width={38}
@@ -63,24 +63,24 @@ export default function Navbar({ _user, userPhoto }) {
                         alt="Logo Qatar"
                       />
                     </div>
-                  </a>
+                  </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
-                        href={item.href}
-                        key={item.name}
-                        className={classNames(
-                          router.pathname === item.href
-                            ? "bg-gray-200  text-gray-700 cursor-pointer"
-                            : " text-gray-700 hover:bg-gray-300 hover:text-gray-800 cursor-pointer",
-                          "px-3 py-2 rounded-md text-sm font-medium cursor-pointer"
-                        )}
-                        aria-current={item.current ? "page" : undefined}
-                      >
-                        {item.name}
-                      </a>
+                      <Link href={item.href} key={item.name}>
+                        <a
+                          className={classNames(
+                            router.pathname === item.href
+                              ? "bg-gray-200  text-gray-700 cursor-pointer"
+                              : " text-gray-700 hover:bg-gray-300 hover:text-gray-800 cursor-pointer",
+                            "px-3 py-2 rounded-md text-sm font-medium cursor-pointer"
+                          )}
+                          aria-current={item.current ? "page" : undefined}
+                        >
+                          {item.name}
+                        </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -114,19 +114,22 @@ export default function Navbar({ _user, userPhoto }) {
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
+                          <Link
                             href={
                               router.pathname === `/users/[user]`
                                 ? `/users/${_user?.uid}`
                                 : `/users/${_user?.uid}`
                             }
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
-                            )}
                           >
-                            Ver perfil
-                          </a>
+                            <a
+                              className={classNames(
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700"
+                              )}
+                            >
+                              Ver perfil
+                            </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
