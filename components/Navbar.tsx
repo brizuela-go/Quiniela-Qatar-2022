@@ -156,22 +156,22 @@ export default function Navbar({ _user, userPhoto }) {
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pt-2 pb-3">
               {navigation.map((item) => (
-                <Link href={item.href} key={item.name}>
-                  <Disclosure.Button
-                    as="a"
-                    className={classNames(
-                      router.pathname === item.href
-                        ? "bg-gray-200  text-gray-700"
-                        : " text-gray-700 hover:bg-gray-200 hover:text-gray-800",
-                      "block px-3 py-2 rounded-md text-base font-medium"
-                    )}
-                    aria-current={
-                      router.pathname === item.href ? "page" : undefined
-                    }
-                  >
-                    {item.name}
-                  </Disclosure.Button>
-                </Link>
+                <Disclosure.Button
+                  key={item.name}
+                  as="a"
+                  href={item.href}
+                  className={classNames(
+                    router.pathname === item.href
+                      ? "bg-gray-200  text-gray-700"
+                      : " text-gray-700 hover:bg-gray-200 hover:text-gray-800",
+                    "block px-3 py-2 rounded-md text-base font-medium"
+                  )}
+                  aria-current={
+                    router.pathname === item.href ? "page" : undefined
+                  }
+                >
+                  {item.name}
+                </Disclosure.Button>
               ))}
             </div>
           </Disclosure.Panel>
