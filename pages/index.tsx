@@ -18,6 +18,7 @@ const icons = {
   applePay: "/APPLE_PAY.svg",
   mastercard: "/MASTER_CARD.svg",
   visa: "/VISA.svg",
+  oxxo: "https://js.stripe.com/v3/fingerprinted/img/oxxo-96b6ab36d23607973cb466bec56d187b.svg",
 };
 
 export default function Home() {
@@ -62,6 +63,10 @@ export default function Home() {
       router.push("/login");
     }
   }, [user, userLoading]);
+
+  async function signOut() {
+    await firebase.auth().signOut();
+  }
 
   return (
     <div>
@@ -116,7 +121,7 @@ export default function Home() {
                         })
                       }
                     >
-                      Pagar con Tarjeta
+                      Pago Seguro
                     </button>
                     <button
                       className=" bg-gradient-to-r from-red-600 to-red-800  text-white font-bold py-2 px-5 lg:px-8 rounded shadow-lg hover:shadow-xl transition duration-200 hover:via-red-800 hover:to-red-900 animate__animated animate__fadeIn animate__delay-5s text-sm"
@@ -162,6 +167,14 @@ export default function Home() {
                       ))}
                     </div>
                   )}
+                  <div className=" flex justify-center mt-4">
+                    <button
+                      onClick={signOut}
+                      className="underline text-gray-500 text-center text-xs hover:text-gray-700 focus:text-gray-800"
+                    >
+                      Cerrar Sesión
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

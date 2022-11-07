@@ -162,12 +162,14 @@ export default function Navbar({ _user, userPhoto }) {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current
+                    router.pathname === item.href
                       ? "bg-gray-200  text-gray-700"
                       : " text-gray-700 hover:bg-gray-200 hover:text-gray-800",
                     "block px-3 py-2 rounded-md text-base font-medium"
                   )}
-                  aria-current={item.current ? "page" : undefined}
+                  aria-current={
+                    router.pathname === item.href ? "page" : undefined
+                  }
                 >
                   {item.name}
                 </Disclosure.Button>

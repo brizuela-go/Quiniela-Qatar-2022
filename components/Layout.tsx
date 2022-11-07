@@ -11,8 +11,6 @@ const Layout = ({ children }) => {
   const [userPhoto, setUserPhoto] = React.useState("");
   const userIsPremium = usePremiumStatus(_user);
 
-  let userData = null;
-
   firebase
     .firestore()
     .collection("users")
@@ -29,8 +27,6 @@ const Layout = ({ children }) => {
     .catch((error) => {
       console.log("Error getting document:", error);
     });
-
-  console.log(userPhoto);
 
   return (
     <div>

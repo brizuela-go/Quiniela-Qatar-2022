@@ -23,7 +23,7 @@ const UserProfile = ({ user }) => {
   return (
     <>
       {userIsPremium ? (
-        <div className="animate__animated animate__fadeIn animate__delay-1s">
+        <div className="">
           <div className="justify-center flex rounded-full">
             <Image
               src={user.photoUrl}
@@ -37,10 +37,12 @@ const UserProfile = ({ user }) => {
           <h2>{user.email}</h2>
         </div>
       ) : (
-        <div className="animate__animated animate__fadeIn animate__delay-1s">
-          <h1>Todavía no tienes acceso a esta página</h1>
+        <div className="animate__animated animate__fadeIn animate__delay-2s flex justify-center flex-col items-center mt-40 text-center p-10">
+          <h1 className="text-2xl font-semibold">
+            Todavía no tienes acceso a esta página
+          </h1>
           <Link href="/">
-            <a>Regresar al menú de pagos</a>
+            <a className=" underline">Regresar al menú de pagos</a>
           </Link>
         </div>
       )}
