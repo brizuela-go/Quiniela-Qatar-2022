@@ -79,7 +79,7 @@ export default function Home() {
               <h1>¡Empieza a llenar tu quiniela, {name.split(" ")[0]}!</h1>
             </div>
           ) : (
-            <div className="animate__animated animate__fadeIn  bg-[url('/cup.jpg')] bg-cover bg-fixed bg-center h-screen">
+            <div className="animate__animated animate__fadeIn animate__delay-3s bg-[url('/cup.jpg')] bg-cover bg-fixed bg-center h-screen">
               {/* card */}
               <div className="flex flex-col items-center justify-center h-full ">
                 <div className="bg-white rounded-lg shadow-xl p-10 animate__animated animate__fadeIn animate__delay-2s mx-4">
