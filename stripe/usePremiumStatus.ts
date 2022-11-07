@@ -10,9 +10,7 @@ export default function usePremiumStatus(user: firebase.User) {
       const checkPremiumStatus = async function () {
         setPremiumStatus(await isUserPremium());
       };
-      setTimeout(() => {
-        checkPremiumStatus();
-      }, 1000);
+      checkPremiumStatus();
     }
   }, [user]);
 
