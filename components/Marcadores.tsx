@@ -45,58 +45,13 @@ const columns = [
   },
 ];
 
-const options = {
-  filterType: "checkbox",
-  selectableRows: "none",
-  viewColumns: true,
-  rowsPerPage: 10,
-  rowsPerPageOptions: [10, 20, 100],
-  responsive: "standard",
-  textLabels: {
-    body: {
-      noMatch: "No se encontraron registros",
-      toolTip: "Ordenar",
-      columnHeaderTooltip: (column) => `Ordenar para ${column.label}`,
-    },
-    pagination: {
-      next: "Siguiente Página",
-      previous: "Página Anterior",
-      rowsPerPage: "Filas por página:",
-      displayRows: "de",
-    },
-    toolbar: {
-      search: "Buscar",
-      downloadCsv: "Descargar CSV",
-      print: "Imprimir",
-      viewColumns: "Ver Columnas",
-      filterTable: "Filtrar Tabla",
-    },
-    filter: {
-      all: "Todos",
-      title: "FILTROS",
-      reset: "RESETEAR",
-    },
-    viewColumns: {
-      title: "Mostrar Columnas",
-      titleAria: "Mostrar/Ocultar Columnas de Tabla",
-    },
-    selectedRows: {
-      text: "fila(s) seleccionada(s)",
-      delete: "Borrar",
-      deleteAria: "Borrar Filas Seleccionadas",
-    },
-  },
-};
-
 export default function Marcadores({ users }) {
   let data = [];
 
   users.map((user, index) => {
     data.push({
       position: 1,
-      foto: (
-        <Avatar variant="rounded" alt={user.name} src={user.photoUrl}></Avatar>
-      ),
+      foto: <Avatar alt={user.name} src={user.photoUrl}></Avatar>,
       name: user.name,
       puntos: 20,
       detalles: (
@@ -114,7 +69,47 @@ export default function Marcadores({ users }) {
         title={"Tabla de Posiciones 🏆"}
         data={data}
         columns={columns}
-        options={options}
+        options={{
+          selectableRows: "none",
+          viewColumns: true,
+          rowsPerPage: 10,
+          rowsPerPageOptions: [10, 20, 100],
+          responsive: "standard",
+          textLabels: {
+            body: {
+              noMatch: "No se encontraron registros",
+              toolTip: "Ordenar",
+              columnHeaderTooltip: (column) => `Ordenar para ${column.label}`,
+            },
+            pagination: {
+              next: "Siguiente Página",
+              previous: "Página Anterior",
+              rowsPerPage: "Filas por página:",
+              displayRows: "de",
+            },
+            toolbar: {
+              search: "Buscar",
+              downloadCsv: "Descargar CSV",
+              print: "Imprimir",
+              viewColumns: "Ver Columnas",
+              filterTable: "Filtrar Tabla",
+            },
+            filter: {
+              all: "Todos",
+              title: "FILTROS",
+              reset: "RESETEAR",
+            },
+            viewColumns: {
+              title: "Mostrar Columnas",
+              titleAria: "Mostrar/Ocultar Columnas de Tabla",
+            },
+            selectedRows: {
+              text: "fila(s) seleccionada(s)",
+              delete: "Borrar",
+              deleteAria: "Borrar Filas Seleccionadas",
+            },
+          },
+        }}
       />
     </div>
   );
