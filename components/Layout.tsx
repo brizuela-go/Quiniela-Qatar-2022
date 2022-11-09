@@ -12,13 +12,6 @@ const Layout = ({ children }) => {
   const [userPhoto, setUserPhoto] = React.useState("");
   const userIsPremium = usePremiumStatus(_user);
 
-  const router = useRouter();
-  useEffect(() => {
-    if (!_user && !userLoading) {
-      router.push("/");
-    }
-  }, [_user, userLoading]);
-
   firebase
     .firestore()
     .collection("users")
