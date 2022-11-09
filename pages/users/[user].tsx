@@ -26,12 +26,7 @@ const UserDetails = ({ user, quiniela }) => {
     }
   }, []);
 
-  return (
-    <div>
-      {console.log(user)}
-      {user && <UserProfile user={user} />}
-    </div>
-  );
+  return <div>{user && <UserProfile user={user} />}</div>;
 };
 
 export default UserDetails;
