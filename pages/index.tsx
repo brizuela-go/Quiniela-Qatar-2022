@@ -62,7 +62,7 @@ export default function Home() {
     if (!user && !userLoading) {
       router.push("/login");
     }
-  }, [user, userLoading]);
+  }, [user, userLoading, router]);
 
   async function signOut() {
     await firebase.auth().signOut();

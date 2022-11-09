@@ -45,7 +45,7 @@ export default function Quiniela({ data, locales, visitantes }) {
     if (!_user && !userLoading) {
       router.push("/");
     }
-  }, [_user, userLoading]);
+  }, [_user, userLoading, router]);
 
   return (
     <QuinielaLlenar data={data} locales={locales} visitantes={visitantes} />

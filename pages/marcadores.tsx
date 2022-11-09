@@ -22,6 +22,6 @@ export default function TablaDeMarcadores({ users }) {
     if (!_user && !userLoading) {
       router.push("/");
     }
-  }, [_user, userLoading]);
+  }, [_user, userLoading, router]);
   return <Marcadores users={users} />;
 }

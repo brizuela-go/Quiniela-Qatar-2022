@@ -139,7 +139,7 @@ export default function Login({}: Props): ReactElement {
     if (user && !userLoading) {
       router.push("/");
     }
-  }, [user, userLoading]);
+  }, [user, userLoading, router]);
 
   return (
     <>
