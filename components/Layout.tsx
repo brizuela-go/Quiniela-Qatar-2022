@@ -6,11 +6,12 @@ import Footer from "./Footer";
 import usePremiumStatus from "../stripe/usePremiumStatus";
 import { useAuthState } from "react-firebase-hooks/auth";
 import firebase from "../firebase/firebaseClient";
+import { useStateContext } from "../context/PremiumContext";
 
 const Layout = ({ children }) => {
   const [_user, userLoading] = useAuthState(firebase.auth());
   const [userPhoto, setUserPhoto] = React.useState("");
-  const userIsPremium = usePremiumStatus(_user);
+  const { userIsPremium } = useStateContext();
 
   firebase
     .firestore()

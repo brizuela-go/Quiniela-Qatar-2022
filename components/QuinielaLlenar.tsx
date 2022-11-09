@@ -11,6 +11,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import SaveIcon from "@mui/icons-material/Save";
 import Fab from "@mui/material/Fab";
 import Skeleton from "@mui/material/Skeleton";
+import { useStateContext } from "../context/PremiumContext";
 
 type Props = {};
 
@@ -20,7 +21,7 @@ const QuinielaLlenar = ({ data, locales, visitantes }) => {
   const [edit, setEdit] = useState(true);
 
   const [user] = useAuthState(firebase.auth());
-  const userIsPremium = usePremiumStatus(user);
+  const { userIsPremium } = useStateContext();
 
   const router = useRouter();
 
@@ -102,6 +103,12 @@ const QuinielaLlenar = ({ data, locales, visitantes }) => {
   }
 
   console.log(visitante);
+
+  useEffect(() => {
+    if (userIsPremium === false) {
+      router.push("/");
+    }
+  }, [userIsPremium]);
 
   return (
     <>
@@ -254,25 +261,19 @@ const QuinielaLlenar = ({ data, locales, visitantes }) => {
         </form>
       ) : (
         <div>
+          <div className="flex lg:justify-end mr-12 m-2 lg:mt-20 mt-16 justify-center">
+            <Skeleton
+              variant="rounded"
+              width={"60%"}
+              height={60}
+              className="mb-8"
+            />
+          </div>
           <div
             className={
-              " lg:m-12 m-2 lg:mt-16 mt-14  justify-center flex flex-col items-center"
+              " lg:mx-12 lg:mb-12 m-2 justify-center flex flex-col items-center"
             }
           >
-            <div className="flex justify-end">
-              <Skeleton
-                variant="circular"
-                width={"100%"}
-                height={80}
-                className="mb-8"
-              />
-              <Skeleton
-                variant="circular"
-                width={"100%"}
-                height={80}
-                className="mb-8"
-              />
-            </div>
             <Skeleton variant="rectangular" width={"100%"} height={600} />
           </div>
         </div>

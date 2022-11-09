@@ -3,11 +3,19 @@ import Image from "next/image";
 import firebase from "../firebase/firebaseClient";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useRouter } from "next/router";
+import { useStateContext } from "../context/PremiumContext";
 
 type Props = {};
 
 const UserProfile = ({ user }) => {
   const [_user, userLoading] = useAuthState(firebase.auth());
+
+  const { userIsPremium } = useStateContext();
+  useEffect(() => {
+    if (!userIsPremium) {
+      router.push("/");
+    }
+  }, [userIsPremium]);
 
   const router = useRouter();
 

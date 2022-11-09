@@ -1,12 +1,23 @@
 import "../styles/globals.css";
 import Layout from "../components/Layout";
-import "react-toastify/dist/ReactToastify.css";
+import { PremiumContext } from "../context/PremiumContext";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
+const theme = createTheme({
+  typography: {
+    fontFamily: "Inter var",
+  },
+});
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <PremiumContext>
+      <ThemeProvider theme={theme}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
+    </PremiumContext>
   );
 }
 

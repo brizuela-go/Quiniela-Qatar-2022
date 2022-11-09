@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import Typewriter from "typewriter-effect";
 import Image from "next/image";
 import toast, { Toaster } from "react-hot-toast";
+import { useStateContext } from "../context/PremiumContext";
 
 import { BsWhatsapp } from "react-icons/bs";
 import { MdContentCopy } from "react-icons/md";
@@ -24,7 +25,7 @@ const icons = {
 export default function Home() {
   const [user, userLoading] = useAuthState(firebase.auth());
   const [name, setName] = useState("");
-  const userIsPremium = usePremiumStatus(user);
+  const { userIsPremium } = useStateContext();
 
   // get lenght of users collection in firestore
   const [users, setUsers] = useState(0);
@@ -73,13 +74,13 @@ export default function Home() {
       <Toaster position="top-center" reverseOrder={false} />
 
       {user && !userLoading && (
-        <div className="animate__animated animate__fadeIn animate__delay-1s">
+        <div className="">
           {userIsPremium ? (
-            <div>
+            <div className="animate__animated animate__fadeIn">
               <h1>¡Empieza a llenar tu quiniela, {name.split(" ")[0]}!</h1>
             </div>
           ) : (
-            <div className="animate__animated animate__fadeIn animate__delay-3s bg-[url('/cup.jpg')] bg-cover bg-fixed bg-center h-screen">
+            <div className="animate__animated animate__fadeIn animate__delay-1s  bg-[url('/cup.jpg')] bg-cover bg-fixed bg-center h-screen">
               {/* card */}
               <div className="flex flex-col items-center justify-center h-full ">
                 <div className="bg-white rounded-lg shadow-xl p-10 animate__animated animate__fadeIn animate__delay-2s mx-4">
@@ -112,7 +113,7 @@ export default function Home() {
                   </p>
                   <div className="flex justify-center gap-4">
                     <button
-                      className=" bg-gradient-to-r from-violet-600 to-violet-800 hover:bg-blue-600 text-white font-bold py-2 px-5 lg:px-8 rounded shadow-lg hover:shadow-xl transition duration-200 hover:via-violet-700 hover:to-violet-900 focus:from-violet-800 focus:to-violet-900 animate__animated animate__fadeIn animate__delay-5s text-sm"
+                      className=" bg-gradient-to-r from-violet-600 to-violet-800 hover:bg-blue-600 text-white font-bold py-2 px-5 lg:px-8 rounded shadow-lg hover:shadow-xl transition duration-200 hover:via-violet-700 hover:to-violet-900 focus:from-violet-800 focus:to-violet-900 animate__animated animate__fadeIn animate__delay-4s text-sm"
                       onClick={() =>
                         toast.promise(createCheckoutSession(user.uid), {
                           loading: "Redireccionando al pago...",
@@ -124,7 +125,7 @@ export default function Home() {
                       Pago Seguro
                     </button>
                     <button
-                      className=" bg-gradient-to-r from-red-600 to-red-800  text-white font-bold py-2 px-5 lg:px-8 rounded shadow-lg hover:shadow-xl transition duration-200 hover:via-red-800 hover:to-red-900 animate__animated animate__fadeIn animate__delay-5s text-sm"
+                      className=" bg-gradient-to-r from-red-600 to-red-800  text-white font-bold py-2 px-5 lg:px-8 rounded shadow-lg hover:shadow-xl transition duration-200 hover:via-red-800 hover:to-red-900 animate__animated animate__fadeIn animate__delay-4s text-sm"
                       onClick={() => {
                         navigator.clipboard.writeText("014650250101695364");
                         toast.success("¡CLABE Copiada!");
@@ -135,7 +136,7 @@ export default function Home() {
                     </button>
                   </div>
 
-                  <div className="flex  flex-col justify-center items-center mt-7 animate__animated animate__fadeIn animate__delay-5s">
+                  <div className="flex  flex-col justify-center items-center mt-7 animate__animated animate__fadeIn animate__delay-4s">
                     <p className="text-gray-500 text-center text-xs">
                       ¿Ya pagaste tu quiniela?
                     </p>
