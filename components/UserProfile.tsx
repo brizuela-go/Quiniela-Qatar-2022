@@ -15,7 +15,7 @@ const UserProfile = ({ user }) => {
     if (!_user && !userLoading) {
       router.push("/");
     }
-  }, [_user, userLoading]);
+  }, [_user, userLoading, router]);
 
   return (
     <>

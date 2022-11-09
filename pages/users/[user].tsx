@@ -24,7 +24,7 @@ const UserDetails = ({ user, quiniela }) => {
     if (user === null) {
       router.push("/404");
     }
-  }, [router]);
+  }, [user, router]);
 
   return <div>{user && <UserProfile user={user} />}</div>;
 };
