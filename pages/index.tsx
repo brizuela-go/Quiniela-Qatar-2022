@@ -83,8 +83,8 @@ export default function Home() {
             <div className="animate__animated animate__fadeIn animate__delay-1s  bg-[url('/cup.jpg')] bg-cover bg-fixed bg-center h-screen">
               {/* card */}
               <div className="flex flex-col items-center justify-center h-full ">
-                <div className="bg-white rounded-lg shadow-xl p-10 animate__animated animate__fadeIn animate__delay-2s mx-4">
-                  <h1 className="lg:text-4xl text-3xl font-bold mb-5 animate__animated animate__fadeIn animate__delay-3s text-center">
+                <div className="bg-white rounded-lg shadow-xl p-10 animate__animated animate__fadeIn animate__delay-1s mx-4">
+                  <h1 className="lg:text-4xl text-3xl font-bold mb-5 animate__animated animate__fadeIn animate__delay-2s text-center">
                     ¡Hola, {name.split(" ")[0]}!
                   </h1>
                   <p className="text-gray-700 mb-5 text-center text-base animate__animated animate__fadeIn animate__delay-3s">
