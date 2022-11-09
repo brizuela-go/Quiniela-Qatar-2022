@@ -1,0 +1,386 @@
+{
+  "1": {
+    "visitante": {
+      "Ecuador": null
+    },
+    "local": {
+      "Catar": null
+    }
+  },
+  "2": {
+    "local": {
+      "Inglaterra": null
+    },
+    "visitante": {
+      "Irán": null
+    }
+  },
+  "3": {
+    "local": {
+      "Senegal": null
+    },
+    "visitante": {
+      "Países Bajos": null
+    }
+  },
+  "4": {
+    "local": {
+      "Estados Unidos": null
+    },
+    "visitante": {
+      "Gales": null
+    }
+  },
+  "5": {
+    "local": {
+      "Argentina": null
+    },
+    "visitante": {
+      "Arabia Saudita": null
+    }
+  },
+  "6": {
+    "visitante": {
+      "Túnez": null
+    },
+    "local": {
+      "Dinamarca": null
+    }
+  },
+  "7": {
+    "visitante": {
+      "Polonia": null
+    },
+    "local": {
+      "México": null
+    }
+  },
+  "8": {
+    "visitante": {
+      "Australia": null
+    },
+    "local": {
+      "Francia": null
+    }
+  },
+  "9": {
+    "visitante": {
+      "Croacia": null
+    },
+    "local": {
+      "Marruecos": null
+    }
+  },
+  "10": {
+    "local": {
+      "Alemania": null
+    },
+    "visitante": {
+      "Japón": null
+    }
+  },
+  "11": {
+    "visitante": {
+      "Costa Rica": null
+    },
+    "local": {
+      "España": null
+    }
+  },
+  "12": {
+    "visitante": {
+      "Canadá": null
+    },
+    "local": {
+      "Bélgica": null
+    }
+  },
+  "13": {
+    "visitante": {
+      "Camerún": null
+    },
+    "local": {
+      "Suiza": null
+    }
+  },
+  "14": {
+    "local": {
+      "Uruguay": null
+    },
+    "visitante": {
+      "Corea del Sur": null
+    }
+  },
+  "15": {
+    "visitante": {
+      "Ghana": null
+    },
+    "local": {
+      "Portugal": null
+    }
+  },
+  "16": {
+    "local": {
+      "Brasil": null
+    },
+    "visitante": {
+      "Serbia": null
+    }
+  },
+  "17": {
+    "visitante": {
+      "Irán": null
+    },
+    "local": {
+      "Gales": null
+    }
+  },
+  "18": {
+    "local": {
+      "Catar": null
+    },
+    "visitante": {
+      "Senegal": null
+    }
+  },
+  "19": {
+    "local": {
+      "Países Bajos": null
+    },
+    "visitante": {
+      "Ecuador": null
+    }
+  },
+  "20": {
+    "local": {
+      "Inglaterra": null
+    },
+    "visitante": {
+      "Estados Unidos": null
+    }
+  },
+  "21": {
+    "local": {
+      "Túnez": null
+    },
+    "visitante": {
+      "Australia": null
+    }
+  },
+  "22": {
+    "local": {
+      "Polonia": null
+    },
+    "visitante": {
+      "Arabia Saudita": null
+    }
+  },
+  "23": {
+    "local": {
+      "Francia": null
+    },
+    "visitante": {
+      "Dinamarca": null
+    }
+  },
+  "24": {
+    "visitante": {
+      "México": null
+    },
+    "local": {
+      "Argentina": null
+    }
+  },
+  "25": {
+    "local": {
+      "Japón": null
+    },
+    "visitante": {
+      "Costa Rica": null
+    }
+  },
+  "26": {
+    "visitante": {
+      "Marruecos": null
+    },
+    "local": {
+      "Bélgica": null
+    }
+  },
+  "27": {
+    "local": {
+      "Croacia": null
+    },
+    "visitante": {
+      "Canadá": null
+    }
+  },
+  "28": {
+    "visitante": {
+      "Alemania": null
+    },
+    "local": {
+      "España": null
+    }
+  },
+  "29": {
+    "visitante": {
+      "Serbia": null
+    },
+    "local": {
+      "Camerún": null
+    }
+  },
+  "30": {
+    "visitante": {
+      "Ghana": null
+    },
+    "local": {
+      "Corea del Sur": null
+    }
+  },
+  "31": {
+    "visitante": {
+      "Suiza": null
+    },
+    "local": {
+      "Brasil": null
+    }
+  },
+  "32": {
+    "local": {
+      "Portugal": null
+    },
+    "visitante": {
+      "Uruguay": null
+    }
+  },
+  "33": {
+    "local": {
+      "Ecuador": null
+    },
+    "visitante": {
+      "Senegal": null
+    }
+  },
+  "34": {
+    "visitante": {
+      "Catar": null
+    },
+    "local": {
+      "Países Bajos": null
+    }
+  },
+  "35": {
+    "visitante": {
+      "Estados Unidos": null
+    },
+    "local": {
+      "Irán": null
+    }
+  },
+  "36": {
+    "visitante": {
+      "Inglaterra": null
+    },
+    "local": {
+      "Gales": null
+    }
+  },
+  "37": {
+    "local": {
+      "Túnez": null
+    },
+    "visitante": {
+      "Francia": null
+    }
+  },
+  "38": {
+    "visitante": {
+      "Dinamarca": null
+    },
+    "local": {
+      "Australia": null
+    }
+  },
+  "39": {
+    "local": {
+      "Polonia": null
+    },
+    "visitante": {
+      "Argentina": null
+    }
+  },
+  "40": {
+    "local": {
+      "Arabia Saudita": null
+    },
+    "visitante": {
+      "México": null
+    }
+  },
+  "41": {
+    "local": {
+      "Croacia": null
+    },
+    "visitante": {
+      "Bélgica": null
+    }
+  },
+  "42": {
+    "local": {
+      "Canadá": null
+    },
+    "visitante": {
+      "Marruecos": null
+    }
+  },
+  "43": {
+    "visitante": {
+      "España": null
+    },
+    "local": {
+      "Japón": null
+    }
+  },
+  "44": {
+    "visitante": {
+      "Alemania": null
+    },
+    "local": {
+      "Costa Rica": null
+    }
+  },
+  "45": {
+    "local": {
+      "Corea del Sur": null
+    },
+    "visitante": {
+      "Portugal": null
+    }
+  },
+  "46": {
+    "local": {
+      "Ghana": null
+    },
+    "visitante": {
+      "Uruguay": null
+    }
+  },
+  "47": {
+    "visitante": {
+      "Suiza": null
+    },
+    "local": {
+      "Serbia": null
+    }
+  },
+  "48": {
+    "visitante": {
+      "Brasil": null
+    },
+    "local": {
+      "Camerún": null
+    }
+  }
+}

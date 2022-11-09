@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import logo from "../public/logo.png";
 import toast, { Toaster } from "react-hot-toast";
+import quiniela from "../quiniela.json";
 
 interface Props {}
 
@@ -27,13 +28,30 @@ export default function Login({}: Props): ReactElement {
       provider: userCredentials.user.providerData[0].providerId,
       photoUrl: userCredentials.user.photoURL,
     });
+
+    // check if collection quiniela exists
+    const quinielaRef = firebase
+      .firestore()
+      .collection("users")
+      .doc(userCredentials.user.uid)
+      .collection("quiniela")
+      .doc("resultados");
+
+    const doc = await quinielaRef.get();
+
+    if (!doc.exists) {
+      console.log("No such document!");
+      quinielaRef.set({
+        resultados: quiniela,
+      });
+    } else {
+      console.log("Document data:", doc.data());
+    }
   }
 
   const photos = [
     "https://parspng.com/wp-content/uploads/2022/05/Worldcupqatarpng.parspng.com-4.png",
     "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1r50NO9EQLfZ2Y3WRrBih6JF2rBJa2qCPMPZ85UL8HM8-hjz1ykE--eBUvaxCTo71ndRZmAmn9oGYKIiD0uTS0C08CLnVfJ4he8f7cYYL7NOcx6LirKt3sHUFF-auHWuRRTklkd_3qwKfyv6IDiZMLQ4kem6tIPAJhwW04zaoCok3LD8GTdDMBAe6lw/s754/La%20eeb.jpg",
-    "https://media.premiumtimesng.com/wp-content/files/2022/10/MSport-World-Cup-1.jpg",
-    "https://cnnespanol.cnn.com/wp-content/uploads/2022/11/221101194952-1-fifa-world-cup-qatar-2022-full-169.jpg?quality=100&strip=info&w=1024",
   ];
 
   const randomPhoto = photos[Math.floor(Math.random() * photos.length)];
@@ -56,6 +74,15 @@ export default function Login({}: Props): ReactElement {
             name: `${name} ${familyName}`,
             provider: user.providerData[0].providerId,
             photoUrl: randomPhoto,
+          });
+        firebase
+          .firestore()
+          .collection("users")
+          .doc(user.uid)
+          .collection("quiniela")
+          .doc("resultados")
+          .set({
+            resultados: quiniela,
           });
         // ...
       })

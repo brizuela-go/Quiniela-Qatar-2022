@@ -8,17 +8,17 @@ import firebase from "../firebase/firebaseClient";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const navigation = [
-  { name: "Inicio", href: "/", current: true },
-  { name: "Mi Quiniela", href: "/quiniela", current: false },
-  { name: "Marcadores", href: "/marcadores", current: false },
-];
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Navbar({ _user, userPhoto }) {
+  const navigation = [
+    { name: "Inicio", href: "/", current: true },
+    { name: "Mi Quiniela", href: `/quiniela/[user]`, current: false },
+    { name: "Marcadores", href: "/marcadores", current: false },
+  ];
+
   const router = useRouter();
 
   async function signOut() {
@@ -68,7 +68,14 @@ export default function Navbar({ _user, userPhoto }) {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <Link href={item.href} key={item.name}>
+                      <Link
+                        href={
+                          item.href === "/quiniela/[user]"
+                            ? `/quiniela/${_user?.uid}`
+                            : item.href
+                        }
+                        key={item.name}
+                      >
                         <a
                           className={classNames(
                             router.pathname === item.href
@@ -155,7 +162,14 @@ export default function Navbar({ _user, userPhoto }) {
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pt-2 pb-3">
               {navigation.map((item) => (
-                <Link href={item.href} key={item.name}>
+                <Link
+                  href={
+                    item.href === "/quiniela/[user]"
+                      ? `/quiniela/${_user?.uid}`
+                      : item.href
+                  }
+                  key={item.name}
+                >
                   <Disclosure.Button
                     as="a"
                     className={classNames(

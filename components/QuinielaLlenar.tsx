@@ -1,23 +1,74 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import flags from "../flags.json";
 import Image from "next/image";
 import { GiSoccerField } from "react-icons/gi";
 import firebase from "../firebase/firebaseClient";
+import { useRouter } from "next/router";
+import usePremiumStatus from "../stripe/usePremiumStatus";
+import { useAuthState } from "react-firebase-hooks/auth";
+import toast, { Toaster } from "react-hot-toast";
+import EditIcon from "@mui/icons-material/Edit";
+import SaveIcon from "@mui/icons-material/Save";
+import Fab from "@mui/material/Fab";
 
 type Props = {};
 
-const QuinielaLlenar = ({ data }) => {
-  const [local, setLocal] = useState([]);
-  const [visitante, setVisitante] = useState([]);
+const QuinielaLlenar = ({ data, locales, visitantes }) => {
+  const [local, setLocal] = useState(locales);
+  const [visitante, setVisitante] = useState(visitantes);
+  const [edit, setEdit] = useState(true);
 
-  async function saveResults(local, visitante) {
+  const [user] = useAuthState(firebase.auth());
+  const userIsPremium = usePremiumStatus(user);
+
+  const router = useRouter();
+
+  const uid = router.query.user;
+
+  console.log(uid);
+
+  // get user name from firebase
+  const [userName, setUserName] = useState("");
+  useEffect(() => {
+    if (uid) {
+      firebase
+        .firestore()
+        .collection("users")
+        .doc(uid.toString())
+        .get()
+        .then((doc) => {
+          setUserName(doc.data().name);
+        });
+    }
+  }, [uid]);
+
+  console.log(userName);
+
+  const resultados = {};
+
+  async function saveResults(e) {
+    e.preventDefault();
     const decodedToken = await firebase.auth().currentUser?.getIdTokenResult();
     const uid = decodedToken?.claims?.user_id;
     const db = firebase.firestore();
-    const quiniela = db.collection("users").doc(uid).collection("quiniela");
-    quiniela.doc("resultados").set({
-      local: local,
-      visitante: visitante,
+
+    const quiniela = db
+      .collection("users")
+      .doc(uid)
+      .collection("quiniela")
+      .doc("resultados");
+
+    quiniela.set({
+      resultados: resultados,
+    });
+    setEdit(true);
+    toast.success("Resultados Guardados con Éxito");
+  }
+
+  async function editResults() {
+    setEdit(false);
+    toast("Modo Edición", {
+      icon: "🖊️",
     });
   }
 
@@ -30,19 +81,58 @@ const QuinielaLlenar = ({ data }) => {
       [name]: value,
     };
 
-    console.log(newState);
     setLocal(newState);
   };
 
-  const handleChangeVisitante = (e) => {
-    setVisitante(e.target.value);
+  const handleChangeVisitante = (event, i) => {
+    const { value, name } = event.target;
+
+    const newState = [...visitante];
+    newState[i] = {
+      ...newState[i],
+      [name]: value,
+    };
+
+    setVisitante(newState);
   };
 
-  console.log({ local, visitante });
+  for (let i = 1; i < local.length; i++) {
+    resultados[i] = { local: local[i], visitante: visitante[i] };
+  }
+
+  console.log(visitante);
 
   return (
-    <div>
-      <form className=" rounded-lg bg-white shadow-lg lg:m-10 m-3 ">
+    <form onSubmit={saveResults} className={!userIsPremium && "hidden"}>
+      <Toaster />
+      {user?.uid !== uid && (
+        <div className="flex justify-center">
+          <h1 className="text-xl font-bold mt-10">Quiniela de {userName} </h1>
+        </div>
+      )}
+      {user?.uid === uid && (
+        <div className="flex flex-row lg:justify-end   mb-10 mt-20 gap-6 lg:mr-10 justify-center">
+          <Fab variant="extended" onClick={() => editResults()}>
+            <EditIcon sx={{ mr: 1 }} />
+            Editar
+          </Fab>
+          <Fab
+            variant="extended"
+            type="submit"
+            className=" bg-gradient-to-r from-green-600 to-green-700 text-white save-button"
+          >
+            <SaveIcon sx={{ mr: 1 }} className="text-white" />
+            Guardar
+          </Fab>
+        </div>
+      )}
+      <div
+        className={
+          !userIsPremium
+            ? "hidden"
+            : "rounded-lg bg-white shadow-lg lg:m-10 m-3"
+        }
+      >
         <div className="flex flex-row justify-center items-center bg-gradient-to-r from-[#4D0822] via-[#7C1330] to-[#4D0822]  p-3">
           <h2 className="text-[#e5bdd0] text-2xl">Fase de Grupos</h2>
         </div>
@@ -67,10 +157,20 @@ const QuinielaLlenar = ({ data }) => {
                         <input
                           id={i}
                           type="number"
+                          value={parseInt(
+                            local[partido["partido"]]?.[partido["HomeTeam"]]
+                          )}
                           className="w-12 border -ml-8 text-center"
+                          disabled={edit}
                           placeholder="#"
+                          name={partido["HomeTeam"]}
                           required
-                          onChange={(e) => handleChangeLocal(e, i)}
+                          step={1}
+                          min={0}
+                          max={20}
+                          onChange={(e) =>
+                            handleChangeLocal(e, partido["partido"])
+                          }
                         />
                         <div className="flex justify-end gap-4 -ml-20 ">
                           <h4 className="flex justify-self-end  text-end">
@@ -107,7 +207,17 @@ const QuinielaLlenar = ({ data }) => {
                           type="number"
                           className="w-12 border ml-20  text-center"
                           placeholder="#"
-                          onChange={handleChangeVisitante}
+                          value={parseInt(
+                            visitante[partido["partido"]]?.[partido["AwayTeam"]]
+                          )}
+                          name={partido["AwayTeam"]}
+                          step={1}
+                          min={0}
+                          max={20}
+                          onChange={(e) =>
+                            handleChangeVisitante(e, partido["partido"])
+                          }
+                          disabled={edit}
                           required
                         />
                       </div>
@@ -121,8 +231,24 @@ const QuinielaLlenar = ({ data }) => {
             ))}
           </div>
         ))}
-      </form>
-    </div>
+      </div>
+      {user?.uid === uid && (
+        <div className="flex flex-row    my-10 gap-6 lg:mr-10 justify-center">
+          <Fab variant="extended" onClick={() => editResults()}>
+            <EditIcon sx={{ mr: 1 }} />
+            Editar
+          </Fab>
+          <Fab
+            variant="extended"
+            type="submit"
+            className=" bg-gradient-to-r from-green-600 to-green-700 save-button"
+          >
+            <SaveIcon sx={{ mr: 1 }} className="text-white" />
+            Guardar
+          </Fab>
+        </div>
+      )}
+    </form>
   );
 };
 

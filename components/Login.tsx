@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import logo from "../public/logo.png";
 import toast, { Toaster } from "react-hot-toast";
+import quiniela from "../quiniela.json";
 
 interface Props {}
 
@@ -27,6 +28,25 @@ export default function Login({}: Props): ReactElement {
       provider: userCredentials.user.providerData[0].providerId,
       photoUrl: userCredentials.user.photoURL,
     });
+
+    // check if collection quiniela exists
+    const quinielaRef = firebase
+      .firestore()
+      .collection("users")
+      .doc(userCredentials.user.uid)
+      .collection("quiniela")
+      .doc("resultados");
+
+    const doc = await quinielaRef.get();
+
+    if (!doc.exists) {
+      console.log("No such document!");
+      quinielaRef.set({
+        resultados: quiniela,
+      });
+    } else {
+      console.log("Document data:", doc.data());
+    }
   }
 
   async function signInWithEmail() {

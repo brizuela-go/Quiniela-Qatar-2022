@@ -23,3 +23,7 @@ a {
 :root {
   --animate-delay: 0.5s;
 }
+
+.save-button {
+  color: #fff !important;
+}
