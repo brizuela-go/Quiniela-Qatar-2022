@@ -7,6 +7,7 @@ import Image from "next/image";
 import firebase from "../firebase/firebaseClient";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Avatar from "@material-ui/core/Avatar";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -96,16 +97,10 @@ export default function Navbar({ _user, userPhoto }) {
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="flex rounded-full bg-gradient-to-r from-stone-400 to-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-white ">
+                    <Menu.Button className="flex text-sm focus:outline-none focus:ring-2 focus:ring-white ">
                       <span className="sr-only">Abir menú de usuario</span>
                       <div className="h-8 w-8 rounded-full">
-                        <Image
-                          className="rounded-full"
-                          width={32}
-                          height={32}
-                          src={userPhoto || "/.png"}
-                          alt="Profile picture"
-                        />
+                        <Avatar alt={_user?.displayName} src={userPhoto} />
                       </div>
                     </Menu.Button>
                   </div>
