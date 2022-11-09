@@ -15,9 +15,11 @@
     "@heroicons/react": "^2.0.13",
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.12",
+    "@mui/x-data-grid": "^5.17.10",
     "@stripe/stripe-js": "^1.16.0",
     "firebase": "^8.7.0",
     "force": "^0.0.3",
+    "mui-datatables": "^4.2.2",
     "next": "^11.1.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -31,6 +33,7 @@
     "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {
+    "@types/mui-datatables": "^3.7.9",
     "@types/react": "^17.0.13",
     "autoprefixer": "^10.4.13",
     "eslint": "7.30.0",
