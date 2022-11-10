@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 type Props = {};
 
-const hello = (props: Props) => {
+const Hello = (props: Props) => {
   useEffect(() => {
     const script = document.createElement("script");
 
@@ -33,4 +33,4 @@ const hello = (props: Props) => {
   );
 };
 
-export default hello;
+export default Hello;
