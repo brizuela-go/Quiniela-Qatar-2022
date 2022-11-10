@@ -64,7 +64,6 @@ export default function Marcadores({ users }) {
 
   return (
     <div className="rounded-xl lg:m-5 mx-0 my-5">
-      {console.log(users)}
       <MUIDataTable
         title={"Tabla de Posiciones 🏆"}
         data={data}

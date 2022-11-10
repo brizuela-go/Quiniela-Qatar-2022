@@ -53,12 +53,10 @@ export default function Login({}: Props): ReactElement {
     const doc = await quinielaRef.get();
 
     if (!doc.exists) {
-      console.log("No such document!");
       quinielaRef.set({
         resultados: quiniela,
       });
     } else {
-      console.log("Document data:", doc.data());
     }
   }
 
@@ -76,7 +74,6 @@ export default function Login({}: Props): ReactElement {
       .then((userCredential) => {
         // Signed in
         var user = userCredential.user;
-        console.log({ user });
         firebase
           .firestore()
           .collection("users")
@@ -103,7 +100,6 @@ export default function Login({}: Props): ReactElement {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log({ errorCode, errorMessage });
         setErrorMessage(errorMessage);
 
         const translate = {

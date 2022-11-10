@@ -27,8 +27,6 @@ const QuinielaLlenar = ({ data, locales, visitantes }) => {
 
   const uid = router.query.user;
 
-  console.log(uid);
-
   // get user name from firebase
   const [userName, setUserName] = useState("");
   useEffect(() => {
@@ -43,8 +41,6 @@ const QuinielaLlenar = ({ data, locales, visitantes }) => {
         });
     }
   }, [uid]);
-
-  console.log(userName);
 
   const resultados = {};
 
@@ -101,8 +97,6 @@ const QuinielaLlenar = ({ data, locales, visitantes }) => {
   for (let i = 1; i < local.length; i++) {
     resultados[i] = { local: local[i], visitante: visitante[i] };
   }
-
-  console.log(visitante);
 
   useEffect(() => {
     if (userIsPremium === false) {

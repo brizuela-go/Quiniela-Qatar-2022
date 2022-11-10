@@ -46,16 +46,12 @@ export default function Home() {
     .get()
     .then((doc) => {
       if (doc.exists) {
-        console.log("Document data:", doc.data());
         setName(doc.data().name);
       } else {
         // doc.data() will be undefined in this case
-        console.log("No such document!");
       }
     })
-    .catch((error) => {
-      console.log("Error getting document:", error);
-    });
+    .catch((error) => {});
 
   const router = useRouter();
 

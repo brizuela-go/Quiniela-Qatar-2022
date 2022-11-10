@@ -53,12 +53,10 @@ export default function Login({}: Props): ReactElement {
     const doc = await quinielaRef.get();
 
     if (!doc.exists) {
-      console.log("No such document!");
       quinielaRef.set({
         resultados: quiniela,
       });
     } else {
-      console.log("Document data:", doc.data());
     }
   }
 
@@ -69,7 +67,6 @@ export default function Login({}: Props): ReactElement {
       .then((userCredential) => {
         // Signed in
         var user = userCredential.user;
-        console.log({ user });
         // ...
       })
       .catch((error) => {
@@ -77,7 +74,6 @@ export default function Login({}: Props): ReactElement {
         const errorMessage = error.message;
         setErrorMessage(errorMessage);
 
-        console.log({ errorCode, errorMessage });
         const translate = {
           "There is no user record corresponding to this identifier. The user may have been deleted.":
             "No hay ningún registro de usuario que corresponda a este identificador. Es posible que el usuario haya sido eliminado.",
