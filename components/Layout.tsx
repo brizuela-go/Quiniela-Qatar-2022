@@ -7,6 +7,7 @@ import usePremiumStatus from "../stripe/usePremiumStatus";
 import { useAuthState } from "react-firebase-hooks/auth";
 import firebase from "../firebase/firebaseClient";
 import { useStateContext } from "../context/PremiumContext";
+import Script from "next/script";
 
 const Layout = ({ children }) => {
   const [_user, userLoading] = useAuthState(firebase.auth());
@@ -38,6 +39,7 @@ const Layout = ({ children }) => {
           href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
         />
       </Head>
+
       <header>
         {_user && !userLoading && userIsPremium && (
           <Navbar _user={_user} userPhoto={userPhoto} />

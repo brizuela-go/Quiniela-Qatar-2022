@@ -12,6 +12,12 @@ import { useStateContext } from "../context/PremiumContext";
 import { BsWhatsapp } from "react-icons/bs";
 import { MdContentCopy } from "react-icons/md";
 
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { CardActionArea } from "@mui/material";
+
 import Link from "next/link";
 
 const icons = {
@@ -72,8 +78,52 @@ export default function Home() {
       {user && !userLoading && (
         <div className="">
           {userIsPremium ? (
-            <div className="animate__animated animate__fadeIn">
-              <h1>¡Empieza a llenar tu quiniela, {name.split(" ")[0]}!</h1>
+            <div className="animate__animated animate__fadeIn lg:m-10 flex flex-col justify-center items-center my-10 mx-0 gap-y-20">
+              <Card sx={{ maxWidth: "70%" }}>
+                <Link href={`/quiniela/${user?.uid}`}>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      image="/quiniela.png"
+                      alt="quiniela"
+                    />
+                    <CardContent>
+                      <strong>
+                        <Typography
+                          gutterBottom
+                          variant="h5"
+                          component="div"
+                          className="font-bold"
+                        >
+                          Mi Quiniela
+                        </Typography>
+                      </strong>
+                      <Typography variant="body2" color="text.secondary">
+                        Llena, edita y ve tu quiniela.
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Link>
+              </Card>
+              <Card sx={{ maxWidth: "70%" }}>
+                <Link href={`/marcadores`}>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      image="/resultados.jpg"
+                      alt="quiniela"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        Marcadores
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Ver la tabla de posiciones.
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Link>
+              </Card>
             </div>
           ) : (
             <div className="animate__animated animate__fadeIn animate__delay-1s  bg-[url('/cup.jpg')] bg-cover bg-fixed bg-center h-screen">
@@ -123,7 +173,7 @@ export default function Home() {
                     <button
                       className=" bg-gradient-to-r from-red-600 to-red-800  text-white font-bold py-2 px-5 lg:px-8 rounded shadow-lg hover:shadow-xl transition duration-200 hover:via-red-800 hover:to-red-900 animate__animated animate__fadeIn animate__delay-4s text-sm"
                       onClick={() => {
-                        navigator.clipboard.writeText("014650250101695364");
+                        navigator.clipboard.writeText("002668082674240560");
                         toast.success("¡CLABE Copiada!");
                       }}
                     >
