@@ -119,7 +119,11 @@ const QuinielaLlenar = ({ data, locales, visitantes }) => {
           )}
           {user?.uid === uid && (
             <div className="flex flex-row lg:justify-end   mb-10 mt-20 gap-6 lg:mr-10 justify-center">
-              <Fab variant="extended" onClick={() => editResults()}>
+              <Fab
+                variant="extended"
+                className="edit-button"
+                onClick={() => editResults()}
+              >
                 <EditIcon sx={{ mr: 1 }} />
                 Editar
               </Fab>
@@ -344,7 +348,11 @@ const QuinielaLlenar = ({ data, locales, visitantes }) => {
           </div>
           {user?.uid === uid && (
             <div className="flex flex-row    my-10 gap-6 lg:mr-10 justify-center">
-              <Fab variant="extended" onClick={() => editResults()}>
+              <Fab
+                variant="extended"
+                className="edit-button"
+                onClick={() => editResults()}
+              >
                 <EditIcon sx={{ mr: 1 }} />
                 Editar
               </Fab>
