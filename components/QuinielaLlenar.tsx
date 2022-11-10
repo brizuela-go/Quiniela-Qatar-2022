@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import flags from "../flags.json";
 import Image from "next/image";
 import { GiSoccerField } from "react-icons/gi";
+import { BiTimeFive } from "react-icons/bi";
 import firebase from "../firebase/firebaseClient";
 import { useRouter } from "next/router";
 import usePremiumStatus from "../stripe/usePremiumStatus";
@@ -132,7 +133,7 @@ const QuinielaLlenar = ({ data, locales, visitantes }) => {
               </Fab>
             </div>
           )}
-          <div className={"rounded-lg bg-white shadow-lg lg:m-10 m-3"}>
+          <div className={"rounded-lg bg-white shadow-lg lg:m-10 m-3 "}>
             <div className="flex flex-row justify-center items-center bg-gradient-to-r from-[#4D0822] via-[#7C1330] to-[#4D0822]  p-3">
               <h2 className="text-[#e5bdd0] text-2xl">Fase de Grupos</h2>
             </div>
@@ -150,86 +151,191 @@ const QuinielaLlenar = ({ data, locales, visitantes }) => {
                       <h3 className="text-[#61607A]">{ronda.data[i].Fecha}</h3>
                     </div>
                     {ronda.data[i].data.map((partido, j) => (
-                      <div key={j}>
-                        <div className="grid grid-cols-3 p-2 " key={j}>
-                          <h4 className="justify-self-start">
-                            {partido["Group"]}
-                          </h4>
-                          <div className="grid grid-cols-5">
-                            <input
-                              id={i}
-                              type="number"
-                              value={parseInt(
-                                local[partido["partido"]]?.[partido["HomeTeam"]]
-                              )}
-                              className="w-12 border -ml-8 text-center shadow-lg border-double border-gray-400 font-medium"
-                              disabled={edit}
-                              placeholder="#"
-                              name={partido["HomeTeam"]}
-                              required
-                              step={1}
-                              min={0}
-                              max={20}
-                              onChange={(e) =>
-                                handleChangeLocal(e, partido["partido"])
-                              }
-                            />
-                            <div className="flex justify-end gap-4 -ml-20 ">
-                              <h4 className="flex justify-self-end  text-end">
-                                {partido["HomeTeam"]}
-                              </h4>
-                              <div className="h-6 w-6 flex justify-end">
-                                <Image
-                                  src={flags[partido["HomeTeam"]]}
-                                  alt={partido["HomeTeam"]}
-                                  width={48}
-                                  height={48}
-                                  quality={100}
-                                  priority
-                                />
-                              </div>
-                            </div>
-                            <h4 className="justify-self-center  bg-[#F0F0F5] px-4 rounded-xl">
-                              {partido["TimeUtc"]}
+                      <>
+                        <div key={j} className="lg:block hidden">
+                          <div className="grid grid-cols-3 p-3 " key={j}>
+                            <h4 className="justify-self-start">
+                              {partido["Group"]}
                             </h4>
-                            <div className="flex justify-start gap-4 -mr-16">
-                              <div className="h-6 w-6 ">
-                                <Image
-                                  src={flags[partido["AwayTeam"]]}
-                                  alt={partido["HomeTeam"]}
-                                  width={48}
-                                  height={48}
-                                  className=""
-                                />
+                            <div className="grid grid-cols-5">
+                              <input
+                                id={i}
+                                type="number"
+                                value={parseInt(
+                                  local[partido["partido"]]?.[
+                                    partido["HomeTeam"]
+                                  ]
+                                )}
+                                className="w-12 border -ml-8 text-center shadow-lg border-double border-gray-400 font-medium"
+                                disabled={edit}
+                                placeholder="#"
+                                name={partido["HomeTeam"]}
+                                required
+                                step={1}
+                                min={0}
+                                max={20}
+                                onChange={(e) =>
+                                  handleChangeLocal(e, partido["partido"])
+                                }
+                              />
+                              <div className="flex justify-end gap-4 -ml-20 ">
+                                <h4 className="flex justify-self-end  text-end">
+                                  {partido["HomeTeam"]}
+                                </h4>
+                                <div className="h-6 w-6 flex justify-end">
+                                  <Image
+                                    src={flags[partido["HomeTeam"]]}
+                                    alt={partido["HomeTeam"]}
+                                    width={48}
+                                    height={48}
+                                    quality={100}
+                                    priority
+                                  />
+                                </div>
                               </div>
-                              <h4>{partido["AwayTeam"]}</h4>
+                              <h4 className="justify-self-center  bg-[#F0F0F5] px-4 rounded-xl">
+                                {partido["TimeUtc"]}
+                              </h4>
+                              <div className="flex justify-start gap-4 -mr-16">
+                                <div className="h-6 w-6 ">
+                                  <Image
+                                    src={flags[partido["AwayTeam"]]}
+                                    alt={partido["AwayTeam"]}
+                                    width={48}
+                                    height={48}
+                                    className=""
+                                  />
+                                </div>
+                                <h4>{partido["AwayTeam"]}</h4>
+                              </div>
+                              <input
+                                id={i}
+                                type="number"
+                                className="w-12 border ml-20  text-center shadow-lg border-double border-gray-400 font-medium"
+                                placeholder="#"
+                                value={parseInt(
+                                  visitante[partido["partido"]]?.[
+                                    partido["AwayTeam"]
+                                  ]
+                                )}
+                                name={partido["AwayTeam"]}
+                                step={1}
+                                min={0}
+                                max={20}
+                                onChange={(e) =>
+                                  handleChangeVisitante(e, partido["partido"])
+                                }
+                                disabled={edit}
+                                required
+                              />
                             </div>
-                            <input
-                              id={i}
-                              type="number"
-                              className="w-12 border ml-20  text-center shadow-lg border-double border-gray-400 font-medium"
-                              placeholder="#"
-                              value={parseInt(
-                                visitante[partido["partido"]]?.[
-                                  partido["AwayTeam"]
-                                ]
-                              )}
-                              name={partido["AwayTeam"]}
-                              step={1}
-                              min={0}
-                              max={20}
-                              onChange={(e) =>
-                                handleChangeVisitante(e, partido["partido"])
-                              }
-                              disabled={edit}
-                              required
-                            />
-                          </div>
-                          <div className=" justify-self-end">
-                            <h4>{partido["Location"]}</h4>
+                            <div className=" justify-self-end">
+                              <h4>{partido["Location"]}</h4>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                        <div key={`${j} + small`} className="lg:hidden">
+                          <div className="m-5 my-8 shadow-lg p-3">
+                            <h4 className="flex justify-start  mb-5">
+                              {partido["Group"]}
+                            </h4>
+                            <div className="flex justify-between mb-6">
+                              <div className="flex justify-start gap-6">
+                                <div className="h-12 w-12 ">
+                                  <Image
+                                    src={flags[partido["HomeTeam"]]}
+                                    alt={partido["HomeTeam"]}
+                                    width={48}
+                                    height={48}
+                                    quality={100}
+                                    priority
+                                  />
+                                </div>
+                                <h4 className="mt-2 text-lg">
+                                  {partido["HomeTeam"]}
+                                </h4>
+                              </div>
+                              <input
+                                id={i}
+                                type="number"
+                                value={parseInt(
+                                  local[partido["partido"]]?.[
+                                    partido["HomeTeam"]
+                                  ]
+                                )}
+                                className="w-12 border  text-center shadow-lg border-double border-gray-400 font-medium"
+                                disabled={edit}
+                                placeholder="#"
+                                name={partido["HomeTeam"]}
+                                required
+                                step={1}
+                                min={0}
+                                max={20}
+                                onChange={(e) =>
+                                  handleChangeLocal(e, partido["partido"])
+                                }
+                              />
+                            </div>
+                            <div className="flex justify-between">
+                              <div className="flex justify-start  gap-6 ">
+                                <div className="h-12 w-12 ">
+                                  <Image
+                                    src={flags[partido["AwayTeam"]]}
+                                    alt={partido["AwayTeam"]}
+                                    width={48}
+                                    height={48}
+                                    quality={100}
+                                    priority
+                                  />
+                                </div>
+                                <h4 className="mt-2 text-lg">
+                                  {partido["AwayTeam"]}
+                                </h4>
+                              </div>
+                              <input
+                                id={i}
+                                type="number"
+                                value={parseInt(
+                                  visitante[partido["partido"]]?.[
+                                    partido["AwayTeam"]
+                                  ]
+                                )}
+                                className="w-12 border  text-center shadow-lg border-double border-gray-400 font-medium"
+                                disabled={edit}
+                                placeholder="#"
+                                name={partido["AwayTeam"]}
+                                required
+                                step={1}
+                                min={0}
+                                max={20}
+                                onChange={(e) =>
+                                  handleChangeVisitante(e, partido["partido"])
+                                }
+                              />
+                            </div>
+
+                            <div className="flex justify-center gap-4 text-sm">
+                              <div className="mt-5">
+                                <div className=" flex justify-center ">
+                                  <GiSoccerField />
+                                </div>
+                                <div className=" flex justify-center ">
+                                  <h4>{partido["Location"]}</h4>
+                                </div>
+                              </div>
+                              <h4 className=" text-xl mt-6">|</h4>
+                              <div className="mt-5">
+                                <div className=" flex justify-center ">
+                                  <BiTimeFive />
+                                </div>
+                                <div className=" flex justify-center ">
+                                  <h4>{partido["TimeUtc"]}</h4>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </>
                     ))}
                   </div>
                 ))}

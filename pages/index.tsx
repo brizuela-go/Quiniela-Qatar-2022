@@ -88,16 +88,10 @@ export default function Home() {
                       alt="quiniela"
                     />
                     <CardContent>
-                      <strong>
-                        <Typography
-                          gutterBottom
-                          variant="h5"
-                          component="div"
-                          className="font-bold"
-                        >
-                          Mi Quiniela
-                        </Typography>
-                      </strong>
+                      <Typography gutterBottom variant="h5" component="div">
+                        Mi Quiniela
+                      </Typography>
+
                       <Typography variant="body2" color="text.secondary">
                         Llena, edita y ve tu quiniela.
                       </Typography>

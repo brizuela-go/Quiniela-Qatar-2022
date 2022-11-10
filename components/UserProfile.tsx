@@ -5,6 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useRouter } from "next/router";
 import { useStateContext } from "../context/PremiumContext";
 import Avatar from "@mui/material/Avatar";
+import Link from "next/link";
 
 type Props = {};
 
@@ -60,6 +61,13 @@ const UserProfile = ({ user }) => {
                     </span>
                     <span className="text-sm text-blueGray-400">Puntos</span>
                   </div>
+                </div>
+                <div className="mb-8">
+                  <Link passHref href={`/quiniela/${user.uid}`}>
+                    <a className=" bg-rose-800 text-white px-4 py-2 rounded shadow-lg hover:shadow-xl hover:bg-rose-900 ">
+                      Ver Quiniela
+                    </a>
+                  </Link>
                 </div>
               </div>
             </div>
