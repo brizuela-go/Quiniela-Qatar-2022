@@ -4,20 +4,20 @@ import firebase from "../firebase/firebaseClient";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useRouter } from "next/router";
 import { useStateContext } from "../context/PremiumContext";
+import Avatar from "@mui/material/Avatar";
 
 type Props = {};
 
 const UserProfile = ({ user }) => {
   const [_user, userLoading] = useAuthState(firebase.auth());
+  const router = useRouter();
 
   const { userIsPremium } = useStateContext();
   useEffect(() => {
     if (!userIsPremium) {
       router.push("/");
     }
-  }, [userIsPremium]);
-
-  const router = useRouter();
+  }, [userIsPremium, router]);
 
   useEffect(() => {
     if (!_user && !userLoading) {
@@ -32,8 +32,9 @@ const UserProfile = ({ user }) => {
           <div className="px-6">
             <div className="flex flex-wrap justify-center">
               <div className="w-full px-4 flex justify-center">
-                <img
-                  alt="..."
+                <Avatar
+                  sx={{ width: 96, height: 96 }}
+                  alt={user?.name}
                   src={user?.photoUrl}
                   className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
                 />

@@ -108,7 +108,7 @@ const QuinielaLlenar = ({ data, locales, visitantes }) => {
     if (userIsPremium === false) {
       router.push("/");
     }
-  }, [userIsPremium]);
+  }, [userIsPremium, router]);
 
   return (
     <>
