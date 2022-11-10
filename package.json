@@ -19,7 +19,6 @@
     "@stripe/stripe-js": "^1.16.0",
     "firebase": "^8.7.0",
     "force": "^0.0.3",
-    "mdb-react-ui-kit": "^5.0.0",
     "mui-datatables": "^4.2.2",
     "next": "^11.1.4",
     "react": "^17.0.2",
