@@ -162,7 +162,7 @@ const QuinielaLlenar = ({ data, locales, visitantes }) => {
                               value={parseInt(
                                 local[partido["partido"]]?.[partido["HomeTeam"]]
                               )}
-                              className="w-12 border -ml-8 text-center"
+                              className="w-12 border -ml-8 text-center shadow-lg border-double border-gray-400 font-medium"
                               disabled={edit}
                               placeholder="#"
                               name={partido["HomeTeam"]}
@@ -207,7 +207,7 @@ const QuinielaLlenar = ({ data, locales, visitantes }) => {
                             <input
                               id={i}
                               type="number"
-                              className="w-12 border ml-20  text-center"
+                              className="w-12 border ml-20  text-center shadow-lg border-double border-gray-400 font-medium"
                               placeholder="#"
                               value={parseInt(
                                 visitante[partido["partido"]]?.[

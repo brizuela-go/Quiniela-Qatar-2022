@@ -31,15 +31,18 @@ const UserProfile = ({ user }) => {
         <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">
           <div className="px-6">
             <div className="flex flex-wrap justify-center">
-              <div className="w-full px-4 flex justify-center">
-                <Avatar
-                  sx={{ width: 96, height: 96 }}
+              <div className="w-full px-4 flex justify-center -mt-16">
+                <Image
+                  width={104}
+                  height={104}
                   alt={user?.name}
                   src={user?.photoUrl}
-                  className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
+                  priority
+                  quality={100}
+                  className=" rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 "
                 />
               </div>
-              <div className="text-center mt-12 ">
+              <div className="text-center mt-6 ">
                 <h3 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700 ">
                   {user?.name}
                 </h3>
