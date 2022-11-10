@@ -53,7 +53,7 @@ export default function Marcadores({ users }) {
       position: 1,
       foto: <Avatar alt={user.name} src={user.photoUrl}></Avatar>,
       name: user.name,
-      puntos: 20,
+      puntos: user.puntos,
       detalles: (
         <Link href={`/users/${user.uid}`}>
           <a className=" underline">Ver detalles</a>

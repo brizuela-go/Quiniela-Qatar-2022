@@ -19,15 +19,28 @@ export default function Login({}: Props): ReactElement {
       .auth()
       .signInWithPopup(new firebase.auth.GoogleAuthProvider());
 
-    console.log({ ...userCredentials.user });
+    // check if user doc exists
+    const userDoc = await firebase
+      .firestore()
+      .collection("users")
+      .doc(userCredentials.user.uid)
+      .get();
 
-    firebase.firestore().collection("users").doc(userCredentials.user.uid).set({
-      uid: userCredentials.user.uid,
-      email: userCredentials.user.email,
-      name: userCredentials.user.displayName,
-      provider: userCredentials.user.providerData[0].providerId,
-      photoUrl: userCredentials.user.photoURL,
-    });
+    if (!userDoc.exists) {
+      // create user doc
+      await firebase
+        .firestore()
+        .collection("users")
+        .doc(userCredentials.user.uid)
+        .set({
+          uid: userCredentials.user.uid,
+          email: userCredentials.user.email,
+          name: userCredentials.user.displayName,
+          provider: userCredentials.user.providerData[0].providerId,
+          photoUrl: userCredentials.user.photoURL,
+          puntos: 0,
+        });
+    }
 
     // check if collection quiniela exists
     const quinielaRef = firebase
@@ -74,6 +87,7 @@ export default function Login({}: Props): ReactElement {
             name: `${name} ${familyName}`,
             provider: user.providerData[0].providerId,
             photoUrl: randomPhoto,
+            puntos: 0,
           });
         firebase
           .firestore()
