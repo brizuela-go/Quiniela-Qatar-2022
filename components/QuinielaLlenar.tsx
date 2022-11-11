@@ -20,16 +20,6 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
   const [visitante, setVisitante] = useState(visitantes);
   const [edit, setEdit] = useState(true);
 
-  const [open, setOpen] = React.useState(false);
-
-  const handleTooltipClose = () => {
-    setOpen(false);
-  };
-
-  const handleTooltipOpen = () => {
-    setOpen(true);
-  };
-
   const [user] = useAuthState(firebase.auth());
   const { userIsPremium } = useStateContext();
 
