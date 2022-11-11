@@ -120,7 +120,7 @@ export default function Home() {
               </Card>
             </div>
           ) : (
-            <div className="animate__animated animate__fadeIn animate__delay-1s  bg-[url('/cup.jpg')] bg-cover bg-fixed bg-center h-screen">
+            <div className="animate__animated animate__fadeIn animate__delay-1s  bg-[url('/cup.jpg')] bg-cover   h-screen">
               {/* card */}
               <div className="flex flex-col items-center justify-center h-full ">
                 <div className="bg-white rounded-lg shadow-xl p-10 animate__animated animate__fadeIn animate__delay-1s mx-4">
