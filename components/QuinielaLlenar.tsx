@@ -5,7 +5,6 @@ import { GiSoccerField } from "react-icons/gi";
 import { BiTimeFive } from "react-icons/bi";
 import firebase from "../firebase/firebaseClient";
 import { useRouter } from "next/router";
-import usePremiumStatus from "../stripe/usePremiumStatus";
 import { useAuthState } from "react-firebase-hooks/auth";
 import toast, { Toaster } from "react-hot-toast";
 import EditIcon from "@mui/icons-material/Edit";
@@ -165,7 +164,7 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
                                     ]
                                   )}
                                   title={"Haz click en editar para modificar"}
-                                  className="w-12 border -ml-8 text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none "
+                                  className="w-12 h-7 pr-0 pl-2 text-center border -ml-8  shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none "
                                   disabled={edit}
                                   placeholder="#"
                                   name={partido["HomeTeam"]}
@@ -218,7 +217,7 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
                                 <input
                                   id={i}
                                   type="number"
-                                  className="w-12 border ml-20  text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none"
+                                  className="w-12 h-7 pr-0 pl-2 ml-20  text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none"
                                   placeholder="#"
                                   value={parseInt(
                                     visitante[partido["partido"]]?.[
@@ -278,7 +277,7 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
                                       partido["HomeTeam"]
                                     ]
                                   )}
-                                  className="w-12 border  text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-lg disabled:bg-gray-200 disabled:border-none"
+                                  className="w-12 border  text-center shadow-xl border-double border-gray-400 font-medium disabled:shadow-lg disabled:bg-gray-200 disabled:border-none"
                                   disabled={edit}
                                   placeholder="#"
                                   name={partido["HomeTeam"]}
@@ -323,7 +322,7 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
                                       partido["AwayTeam"]
                                     ]
                                   )}
-                                  className="w-12 border  text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-lg disabled:bg-gray-200 disabled:border-none"
+                                  className="w-12 border  text-center shadow-xl border-double border-gray-400 font-medium disabled:shadow-lg disabled:bg-gray-200 disabled:border-none"
                                   disabled={edit}
                                   placeholder="#"
                                   name={partido["AwayTeam"]}
