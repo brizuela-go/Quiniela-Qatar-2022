@@ -13,6 +13,7 @@ import SaveIcon from "@mui/icons-material/Save";
 import Fab from "@mui/material/Fab";
 import Skeleton from "@mui/material/Skeleton";
 import { useStateContext } from "../context/PremiumContext";
+import Tooltip from "@mui/material/Tooltip";
 
 type Props = {};
 
@@ -20,6 +21,16 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
   const [local, setLocal] = useState(locales);
   const [visitante, setVisitante] = useState(visitantes);
   const [edit, setEdit] = useState(true);
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleTooltipClose = () => {
+    setOpen(false);
+  };
+
+  const handleTooltipOpen = () => {
+    setOpen(true);
+  };
 
   const [user] = useAuthState(firebase.auth());
   const { userIsPremium } = useStateContext();
@@ -150,29 +161,35 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
                               {partido["Group"]}
                             </h4>
                             <div className="grid grid-cols-5">
-                              <input
-                                id={i}
-                                type="number"
-                                value={parseInt(
-                                  local[partido["partido"]]?.[
-                                    partido["HomeTeam"]
-                                  ]
-                                )}
+                              <Tooltip
+                                disableFocusListener
                                 title={
-                                  edit && "Haz click en editar para modificar"
+                                  edit &&
+                                  `Haz click en "Editar" para poder modificar los resultados`
                                 }
-                                className="w-12 border -ml-8 text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none "
-                                disabled={edit}
-                                placeholder="#"
-                                name={partido["HomeTeam"]}
-                                required
-                                step={1}
-                                min={0}
-                                max={20}
-                                onChange={(e) =>
-                                  handleChangeLocal(e, partido["partido"])
-                                }
-                              />
+                              >
+                                <input
+                                  id={i}
+                                  type="number"
+                                  value={parseInt(
+                                    local[partido["partido"]]?.[
+                                      partido["HomeTeam"]
+                                    ]
+                                  )}
+                                  title={"Haz click en editar para modificar"}
+                                  className="w-12 border -ml-8 text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none "
+                                  disabled={edit}
+                                  placeholder="#"
+                                  name={partido["HomeTeam"]}
+                                  required
+                                  step={1}
+                                  min={0}
+                                  max={20}
+                                  onChange={(e) =>
+                                    handleChangeLocal(e, partido["partido"])
+                                  }
+                                />
+                              </Tooltip>
                               <div className="flex justify-end gap-4 -ml-20 ">
                                 <h4 className="flex justify-self-end  text-end">
                                   {partido["HomeTeam"]}
@@ -203,29 +220,34 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
                                 </div>
                                 <h4>{partido["AwayTeam"]}</h4>
                               </div>
-                              <input
-                                id={i}
-                                type="number"
-                                className="w-12 border ml-20  text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none"
-                                placeholder="#"
-                                value={parseInt(
-                                  visitante[partido["partido"]]?.[
-                                    partido["AwayTeam"]
-                                  ]
-                                )}
-                                name={partido["AwayTeam"]}
-                                step={1}
-                                min={0}
-                                max={20}
-                                onChange={(e) =>
-                                  handleChangeVisitante(e, partido["partido"])
-                                }
-                                disabled={edit}
-                                required
+                              <Tooltip
+                                disableFocusListener
                                 title={
-                                  edit && "Haz click en editar para modificar"
+                                  edit &&
+                                  `Haz click en "Editar" para poder modificar los resultados`
                                 }
-                              />
+                              >
+                                <input
+                                  id={i}
+                                  type="number"
+                                  className="w-12 border ml-20  text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none"
+                                  placeholder="#"
+                                  value={parseInt(
+                                    visitante[partido["partido"]]?.[
+                                      partido["AwayTeam"]
+                                    ]
+                                  )}
+                                  name={partido["AwayTeam"]}
+                                  step={1}
+                                  min={0}
+                                  max={20}
+                                  onChange={(e) =>
+                                    handleChangeVisitante(e, partido["partido"])
+                                  }
+                                  disabled={edit}
+                                  required
+                                />
+                              </Tooltip>
                             </div>
                             <div className=" justify-self-end">
                               <h4>{partido["Location"]}</h4>
@@ -253,29 +275,34 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
                                   {partido["HomeTeam"]}
                                 </h4>
                               </div>
-                              <input
+                              <Tooltip
+                                disableFocusListener
                                 title={
-                                  edit && "Haz click en editar para modificar"
+                                  edit &&
+                                  `Haz click en "Editar" para poder modificar los resultados`
                                 }
-                                id={i}
-                                type="number"
-                                value={parseInt(
-                                  local[partido["partido"]]?.[
-                                    partido["HomeTeam"]
-                                  ]
-                                )}
-                                className="w-12 border  text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none"
-                                disabled={edit}
-                                placeholder="#"
-                                name={partido["HomeTeam"]}
-                                required
-                                step={1}
-                                min={0}
-                                max={20}
-                                onChange={(e) =>
-                                  handleChangeLocal(e, partido["partido"])
-                                }
-                              />
+                              >
+                                <input
+                                  id={i}
+                                  type="number"
+                                  value={parseInt(
+                                    local[partido["partido"]]?.[
+                                      partido["HomeTeam"]
+                                    ]
+                                  )}
+                                  className="w-12 border  text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none"
+                                  disabled={edit}
+                                  placeholder="#"
+                                  name={partido["HomeTeam"]}
+                                  required
+                                  step={1}
+                                  min={0}
+                                  max={20}
+                                  onChange={(e) =>
+                                    handleChangeLocal(e, partido["partido"])
+                                  }
+                                />
+                              </Tooltip>
                             </div>
                             <div className="flex justify-between">
                               <div className="flex justify-start  gap-6 ">
@@ -293,29 +320,34 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
                                   {partido["AwayTeam"]}
                                 </h4>
                               </div>
-                              <input
-                                id={i}
+                              <Tooltip
+                                disableFocusListener
                                 title={
-                                  edit && "Haz click en editar para modificar"
+                                  edit &&
+                                  `Haz click en "Editar" para poder modificar los resultados`
                                 }
-                                type="number"
-                                value={parseInt(
-                                  visitante[partido["partido"]]?.[
-                                    partido["AwayTeam"]
-                                  ]
-                                )}
-                                className="w-12 border  text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none"
-                                disabled={edit}
-                                placeholder="#"
-                                name={partido["AwayTeam"]}
-                                required
-                                step={1}
-                                min={0}
-                                max={20}
-                                onChange={(e) =>
-                                  handleChangeVisitante(e, partido["partido"])
-                                }
-                              />
+                              >
+                                <input
+                                  id={i}
+                                  type="number"
+                                  value={parseInt(
+                                    visitante[partido["partido"]]?.[
+                                      partido["AwayTeam"]
+                                    ]
+                                  )}
+                                  className="w-12 border  text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none"
+                                  disabled={edit}
+                                  placeholder="#"
+                                  name={partido["AwayTeam"]}
+                                  required
+                                  step={1}
+                                  min={0}
+                                  max={20}
+                                  onChange={(e) =>
+                                    handleChangeVisitante(e, partido["partido"])
+                                  }
+                                />
+                              </Tooltip>
                             </div>
 
                             <div className="flex justify-center gap-4 text-sm">
