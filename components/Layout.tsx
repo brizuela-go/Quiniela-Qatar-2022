@@ -74,14 +74,15 @@ const Layout = ({ children }) => {
             className=" mb-16 mt-8"
             id="sportmonks-widget"
             data-widget="wc-standings-slider"
-            data-info="wIsuVd4XIeurKHuU7nmbhjlvNVgGu/2Pv/gpM+T5dRstskWv+BkMs6a4QiqutW6s5uZKhmYUuPXDKcRn53xA4gr50GKIoXI5AdL8neIUe9RqadPxH5gCRZT4AkPOrU2MD+ggRJ/ekFv/gP9WLhLRmsyWwWdpBsbPPTbfQki3PG98BFNb3tzS097YlOZ1YJC++oyCbMOYYQYDHkO3Mwf2qtmxJTALHWOtDzAunrlfXSJJwROd7VwDtdZMKzgKvyczM8oaPzilqVi8mqsiejXfLeagmAHNGVrcbiHGXptyx2IBMCklt5NH5jyE39krg2V4IAAi+8UZNMN7+n/b2UxYu48tSdjchjkqQ+2fnoENPqJV5qV2A1S2wlRzg+H0jzrpbeAwT3xNLd3a3EHcdPK+29VzIMGWzPZ1aTKjjZjtMwGL0UGDntiK3AXRLqlX0HlBtVXWNqP+n+R9g5Tq6pmIrs6jYpDmQyyoP8efU2oVSxn4pE2WuwoE4GoGnxGhWPau+6Ply7xZh/ykl/lnpdM3rjdfpwHvmC+ejhvxd1Q3GS6MMUR809NI9BWhpilHNl1VlHRae7Wx6/Pxn7672ECftKUoGcznMszlRM3+bwoQa928edNBw2Hku/xMsvgQ/LBDNL1WAIAaMsOTzpqZkz39+uleI06rHTDy+3vv55i8wFE="
+            data-info="jXcPxsVvMX9CoSPHSAidnOc3VioT377oUCO7OSHMR3joUA5AECaxUo2cptFP1pPebxJouujerNRV/jGGPbxgwxxIKz6/tUU49Sy3dq/gzrFzhQOePyF5T/tWceY0OqLS4+zRC41ydqeY9ij+/DOEnSv4zmqB/nT9Vls59/uNtMrfOwFt/y35hJ0Mw0MMHkWW5Csvw6mc8zvKrykqD5XzMp+RWAgQymJmq2DDwtYdRIt5ZJgc5PEsUhu2gqz8hCO9G/uDgIn/blCtufyFqktIdcHekeaTY8dAD1Px0heYKZtgbVQDF1sLKS7KhFvjKWeb50B3uy6viFeb1a/KRPqWTOFgHLGOuxyn615fGjybtKqYRJ0/z1abgOM4hSEMM+loto0skRyOai1ctsU01GHG7NosmDgi9TwKcFYaWl7lfw44V69lcqvLB7DY4TjVF0LSIVfaQCbv0fx6Uui1Xqu0d5LiOPuLuVh5qwcQxXbOhqJsdut8kibJuiWKfcmuVQTMBdL4yNB80uF3QuBQWMQiWlrWZor/E0M5/lDHQC3kPVk30TVAiHzo+eR5wtEMcMofcHSNR5QxoksssKjEc7NmwAwneoCpwSrR5hfm2ktxjY4CYpYg3LR+nXmgB4Y/zXb6H93W+HlEYrQ8QwsaLZHtjdnp7Se5H/LNneSkrprkLeY="
             data-colors="#3C041D,#1893C1,#D0D0D9,#7F1431"
             data-font="Roboto"
           ></div>
           <div
             id="sportmonks-widget"
             data-widget="wc-livescore"
-            data-info="hhZLFib/vWXZnXZuaTmd3hRvd5RoVpr0YoAsbZfuD+N26DGX1JqiNkrQcr1/LWOgBQISZqNisXBBZRRlRQGMkPbEyquLPq3RTR54XVNLO6K5gcbF07GK9Zm0F7Ami1OT9yPXPe4LyBbiUHSNDp+oB5KtLIHT888zMT3MktmxbUBPq5RhLJE1mLBgERzLyzGhNZXxokEukcOgRo8KUOW3BffLxmK/B+OuMh60dlrLcMUJtIvALN7NFvdTDVdGVIx9DfkCBvaRxDeLvSEORBH6yX+J41vD3ot+oLRNtwDXVkHpCXsPN8HFkxUCw17P9ttgpKJndMCeQfWFMFE6Oqm3GiDg1GWzyTzp0sBKaaSrnWlPISe1rEbWy8F5lbBIln0htlLyssfslwdMEXgkAHmAhTlDgro/7RT3hIF91TLhxUKnvXjVb61yjZfFxGExySsyGhpMyg5sTDpN8UkRuUd4Ml8bvtDELISLC/nCTbbyk3MQUDlVvMQNwAa8vMRX3RJw0aORX/XYbc/xVrFojEzra36NPNkS2CFxTqUV2MIHJ+34wsc158GJ8P3r8u+REgCcAr2tJpIUNW9RERQiAsh78ECK8g7nZQJJ4BH3QInkSXgd5Dp18uMRIATR0Lic898ejY0Q/dy79iCYsyVl3k1rv9LSt4STULwqdZ2l//swfUs="
+            data-info="C645gd8gEttIIRoTxzC/e3wZZBi9BPLttxTRDPbtAzlJ8yyROKH+KqbBSsKmiT+5JQtsKlLQ35hBcHD4woT1+cFv4stlA7ahCD2FA8FiSxl4bKB0J+QjifPDtFmmUBVSASgtBhpdNLtm4iHsx0YFvxdks5gjpvQILwQyvd4S9+41YICfhnBUAKudLJRJOHtzShZ4GeSyRZwooWUWos/eAvuWrlAik0xTKKx9TlTaM+ZPI90SbiJilp9MwqKvvl4bM37RE+fTI+p656CSHT8DObVmKYUXk2CRh8QiR+vRSNKYwqCIKwi19T6iExEqLgf4cPKYwS+8nQ7TaAdCoYteB9wMgJMtRZi8TzoFOm9UFbP/ThvmLFUaIsqEFya8Ktho9eHreUL+tR2x5QdTMWCYvEZW9gG41KDzQy1AAUxbtti8q+RIsJZCRveYkRNyQeU05g5oTJ8gjE7xBMicbvb5p8jgePFu+DgIE2Xkl9nggNi00QyOuyaexLY3DiiZs4VDiXeT2Kza7FdCxax0x+eAeGhzzoCxLNDYhz9FfTC8NWnXkDsIeK4Zw8Z1BNWL++g7OLZvRieUPS57dVgkkgUG4A2gulVlGfi0Wjp7xs8SSuBEtVTcLnIVZd+VhJAbasxgCCVhvhXsiwYNz19jYaL1HUfV6sBAWOef2EuL9YYWz+o="
+            data-tz="America/Mexico_City"
             data-font="Roboto"
           ></div>
         </div>
