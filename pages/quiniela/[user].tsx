@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import firebase from "../../firebase/firebaseClient";
 import { getUserDetails, getUserQuiniela } from "../../firebase/utils";
 import { useAuthState } from "react-firebase-hooks/auth";
+import Head from "next/head";
 
 export async function getServerSideProps({ query }) {
   const res = await fetch(
@@ -51,11 +52,20 @@ export default function Quiniela({ data, locales, visitantes, userDetails }) {
   }, [_user, userLoading, router]);
 
   return (
-    <QuinielaLlenar
-      data={data}
-      locales={locales}
-      visitantes={visitantes}
-      userDetails={userDetails}
-    />
+    <>
+      <Head>
+        <title>Quiniela de {userDetails.name}</title>
+        <meta
+          name="description"
+          content={`Quiniela de ${userDetails.name} de La Quiniela de Arturo para la Copa Mundial de la FIFA 2022`}
+        />
+      </Head>
+      <QuinielaLlenar
+        data={data}
+        locales={locales}
+        visitantes={visitantes}
+        userDetails={userDetails}
+      />
+    </>
   );
 }

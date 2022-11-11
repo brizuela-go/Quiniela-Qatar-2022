@@ -3,6 +3,7 @@ import Marcadores from "../components/Marcadores";
 import firebase from "../firebase/firebaseClient";
 import { useRouter } from "next/router";
 import { useAuthState } from "react-firebase-hooks/auth";
+import Head from "next/head";
 
 export async function getServerSideProps() {
   const snapshot = await firebase.firestore().collection("users").get();
@@ -23,5 +24,16 @@ export default function TablaDeMarcadores({ users }) {
       router.push("/");
     }
   }, [_user, userLoading, router]);
-  return <Marcadores users={users} />;
+  return (
+    <>
+      <Head>
+        <title>La Quiniela de Arturo | Tabla de Posiciones</title>
+        <meta
+          name="description"
+          content="Tabla de Posiciones de La Quiniela de Arturo de la Copa Mundial de la FIFA 2022"
+        />
+      </Head>
+      <Marcadores users={users} />{" "}
+    </>
+  );
 }

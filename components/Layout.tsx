@@ -48,7 +48,7 @@ const Layout = ({ children }) => {
   return (
     <body>
       <Head>
-        <title>La Quiniela Qatar 2022</title>
+        <title>La Quiniela de Arturo Qatar 2022</title>
         <link rel="icon" href="/logo.png" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css"></link>
         <link
@@ -58,6 +58,10 @@ const Layout = ({ children }) => {
         <link
           rel="stylesheet"
           href="https://widgets.sportmonks.com/css/app.css"
+        />
+        <meta
+          name="description"
+          content="La Quiniela de Arturo de la Copa Mundial de la FIFA 2022"
         />
       </Head>
 
