@@ -15,8 +15,6 @@ import Skeleton from "@mui/material/Skeleton";
 import { useStateContext } from "../context/PremiumContext";
 import Tooltip from "@mui/material/Tooltip";
 
-type Props = {};
-
 const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
   const [local, setLocal] = useState(locales);
   const [visitante, setVisitante] = useState(visitantes);
