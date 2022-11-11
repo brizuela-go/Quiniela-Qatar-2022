@@ -278,7 +278,7 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
                                       partido["HomeTeam"]
                                     ]
                                   )}
-                                  className="w-12 border  text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none"
+                                  className="w-12 border  text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-lg disabled:bg-gray-200 disabled:border-none"
                                   disabled={edit}
                                   placeholder="#"
                                   name={partido["HomeTeam"]}
@@ -323,7 +323,7 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
                                       partido["AwayTeam"]
                                     ]
                                   )}
-                                  className="w-12 border  text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none"
+                                  className="w-12 border  text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-lg disabled:bg-gray-200 disabled:border-none"
                                   disabled={edit}
                                   placeholder="#"
                                   name={partido["AwayTeam"]}
