@@ -60,7 +60,8 @@ export default function Login({}: Props): ReactElement {
     }
   }
 
-  async function signInWithEmail() {
+  async function signInWithEmail(e) {
+    e.preventDefault();
     await firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
@@ -139,7 +140,7 @@ export default function Login({}: Props): ReactElement {
                   </Link>
                 </p>
               </div>
-              <form className="mt-8 space-y-6" action="#" method="POST">
+              <form className="mt-8 space-y-6" onSubmit={signInWithEmail}>
                 <input type="hidden" name="remember" defaultValue="true" />
                 <div className="-space-y-px rounded-md shadow-sm">
                   <div>
@@ -177,8 +178,7 @@ export default function Login({}: Props): ReactElement {
 
                 <div>
                   <button
-                    onClick={signInWithEmail}
-                    type="button"
+                    type="submit"
                     className="group relative flex w-full justify-center rounded-md border border-transparent bg-[#630E2B] py-2 px-4 text-sm font-medium text-white hover:bg-[#5b0d27] focus:outline-none focus:ring-2 focus:ring-[#3e091b] focus:ring-offset-2 shadow-lg transition ease-in duration-200 hover:shadow-xl "
                   >
                     <span className="absolute inset-y-0 left-0 flex items-center pl-3">

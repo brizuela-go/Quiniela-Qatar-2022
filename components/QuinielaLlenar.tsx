@@ -16,7 +16,7 @@ import { useStateContext } from "../context/PremiumContext";
 
 type Props = {};
 
-const QuinielaLlenar = ({ data, locales, visitantes }) => {
+const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
   const [local, setLocal] = useState(locales);
   const [visitante, setVisitante] = useState(visitantes);
   const [edit, setEdit] = useState(true);
@@ -29,19 +29,7 @@ const QuinielaLlenar = ({ data, locales, visitantes }) => {
   const uid = router.query.user;
 
   // get user name from firebase
-  const [userName, setUserName] = useState("");
-  useEffect(() => {
-    if (uid) {
-      firebase
-        .firestore()
-        .collection("users")
-        .doc(uid.toString())
-        .get()
-        .then((doc) => {
-          setUserName(doc.data().name);
-        });
-    }
-  }, [uid]);
+  const userName = userDetails?.name;
 
   const resultados = {};
 
@@ -170,7 +158,10 @@ const QuinielaLlenar = ({ data, locales, visitantes }) => {
                                     partido["HomeTeam"]
                                   ]
                                 )}
-                                className="w-12 border -ml-8 text-center shadow-lg border-double border-gray-400 font-medium"
+                                title={
+                                  edit && "Haz click en editar para modificar"
+                                }
+                                className="w-12 border -ml-8 text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none "
                                 disabled={edit}
                                 placeholder="#"
                                 name={partido["HomeTeam"]}
@@ -215,7 +206,7 @@ const QuinielaLlenar = ({ data, locales, visitantes }) => {
                               <input
                                 id={i}
                                 type="number"
-                                className="w-12 border ml-20  text-center shadow-lg border-double border-gray-400 font-medium"
+                                className="w-12 border ml-20  text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none"
                                 placeholder="#"
                                 value={parseInt(
                                   visitante[partido["partido"]]?.[
@@ -231,6 +222,9 @@ const QuinielaLlenar = ({ data, locales, visitantes }) => {
                                 }
                                 disabled={edit}
                                 required
+                                title={
+                                  edit && "Haz click en editar para modificar"
+                                }
                               />
                             </div>
                             <div className=" justify-self-end">
@@ -239,7 +233,7 @@ const QuinielaLlenar = ({ data, locales, visitantes }) => {
                           </div>
                         </div>
                         <div key={`${j} + small`} className="lg:hidden">
-                          <div className="m-5 my-8 shadow-lg p-3">
+                          <div className="m-3 my-8 shadow-lg p-3">
                             <h4 className="flex justify-start  mb-5">
                               {partido["Group"]}
                             </h4>
@@ -260,6 +254,9 @@ const QuinielaLlenar = ({ data, locales, visitantes }) => {
                                 </h4>
                               </div>
                               <input
+                                title={
+                                  edit && "Haz click en editar para modificar"
+                                }
                                 id={i}
                                 type="number"
                                 value={parseInt(
@@ -267,7 +264,7 @@ const QuinielaLlenar = ({ data, locales, visitantes }) => {
                                     partido["HomeTeam"]
                                   ]
                                 )}
-                                className="w-12 border  text-center shadow-lg border-double border-gray-400 font-medium"
+                                className="w-12 border  text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none"
                                 disabled={edit}
                                 placeholder="#"
                                 name={partido["HomeTeam"]}
@@ -298,13 +295,16 @@ const QuinielaLlenar = ({ data, locales, visitantes }) => {
                               </div>
                               <input
                                 id={i}
+                                title={
+                                  edit && "Haz click en editar para modificar"
+                                }
                                 type="number"
                                 value={parseInt(
                                   visitante[partido["partido"]]?.[
                                     partido["AwayTeam"]
                                   ]
                                 )}
-                                className="w-12 border  text-center shadow-lg border-double border-gray-400 font-medium"
+                                className="w-12 border  text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none"
                                 disabled={edit}
                                 placeholder="#"
                                 name={partido["AwayTeam"]}

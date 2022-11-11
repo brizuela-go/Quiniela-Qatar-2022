@@ -11,6 +11,8 @@ module.exports = {
       "media2.giphy.com",
       "js.stripe.com",
       "ssl.gstatic.com",
+      "assets.stickpng.com",
+      "media.sitioandino.com.ar",
     ],
   },
 };

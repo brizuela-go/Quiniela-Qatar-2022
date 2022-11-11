@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import QuinielaLlenar from "../../components/QuinielaLlenar";
 import { useRouter } from "next/router";
 import firebase from "../../firebase/firebaseClient";
-import { getUserQuiniela } from "../../firebase/utils";
+import { getUserDetails, getUserQuiniela } from "../../firebase/utils";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 export async function getServerSideProps({ query }) {
@@ -14,6 +14,8 @@ export async function getServerSideProps({ query }) {
   const uid = query["user"];
 
   let userData = (await getUserQuiniela(uid)) || null;
+
+  let userDetails = (await getUserDetails(uid)) || null;
 
   let locales = [];
   let visitantes = [];
@@ -34,11 +36,12 @@ export async function getServerSideProps({ query }) {
       data,
       locales,
       visitantes,
+      userDetails,
     },
   };
 }
 
-export default function Quiniela({ data, locales, visitantes }) {
+export default function Quiniela({ data, locales, visitantes, userDetails }) {
   const [_user, userLoading] = useAuthState(firebase.auth());
   const router = useRouter();
   useEffect(() => {
@@ -48,6 +51,11 @@ export default function Quiniela({ data, locales, visitantes }) {
   }, [_user, userLoading, router]);
 
   return (
-    <QuinielaLlenar data={data} locales={locales} visitantes={visitantes} />
+    <QuinielaLlenar
+      data={data}
+      locales={locales}
+      visitantes={visitantes}
+      userDetails={userDetails}
+    />
   );
 }

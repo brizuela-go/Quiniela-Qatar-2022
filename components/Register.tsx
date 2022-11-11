@@ -14,6 +14,18 @@ import quiniela from "../quiniela.json";
 interface Props {}
 
 export default function Login({}: Props): ReactElement {
+  const regex = new RegExp(
+    "^((?!verg)(?!put)(?!coñ)(?!pende)(?!mamad)(?!guaps)(?!concha)(?!nig)(?!fag)(?!pinch)(?!fuck)(?!shit)(?!cabron)(?!cabrón)(?!ching)(?!mame)(?!nig)(?!cunt)(?!gay)(?!homo)(?!dike)(?!lesb)(?!mierd)(?!kike)(?!vagi)(?!peni)(?!pene)(?!ñong)(?!feg)(?!jew)(?!pito)(?!cul)(?!anal)(?!ano)(?!negro).)*$",
+    "i"
+  );
+
+  const [errorMessage, setErrorMessage] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [familyName, setFamilyName] = useState("");
+  const [user, userLoading] = useAuthState(firebase.auth());
+
   async function signInWithGoogle() {
     const userCredentials = await firebase
       .auth()
@@ -63,68 +75,67 @@ export default function Login({}: Props): ReactElement {
   const photos = [
     "https://parspng.com/wp-content/uploads/2022/05/Worldcupqatarpng.parspng.com-4.png",
     "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1r50NO9EQLfZ2Y3WRrBih6JF2rBJa2qCPMPZ85UL8HM8-hjz1ykE--eBUvaxCTo71ndRZmAmn9oGYKIiD0uTS0C08CLnVfJ4he8f7cYYL7NOcx6LirKt3sHUFF-auHWuRRTklkd_3qwKfyv6IDiZMLQ4kem6tIPAJhwW04zaoCok3LD8GTdDMBAe6lw/s754/La%20eeb.jpg",
+    "https://media.sitioandino.com.ar/p/8b1b12b414df867a70caef8f45ead9a5/adjuntos/335/imagenes/000/215/0000215390/790x0/smart/la-mascota-oficial-del-mundialjpg.jpg",
   ];
 
   const randomPhoto = photos[Math.floor(Math.random() * photos.length)];
 
-  async function signUpwithEmail() {
-    await firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        // Signed in
-        var user = userCredential.user;
-        firebase
-          .firestore()
-          .collection("users")
-          .doc(user.uid)
-          .set({
-            uid: user.uid,
-            email: user.email,
-            name: `${name} ${familyName}`,
-            provider: user.providerData[0].providerId,
-            photoUrl: randomPhoto,
-            puntos: 0,
-          });
-        firebase
-          .firestore()
-          .collection("users")
-          .doc(user.uid)
-          .collection("quiniela")
-          .doc("resultados")
-          .set({
-            resultados: quiniela,
-          });
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        setErrorMessage(errorMessage);
+  async function signUpwithEmail(e) {
+    e.preventDefault();
+    if (regex.test(name) && regex.test(familyName) && regex.test(email)) {
+      await firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          // Signed in
+          var user = userCredential.user;
+          firebase
+            .firestore()
+            .collection("users")
+            .doc(user.uid)
+            .set({
+              uid: user.uid,
+              email: user.email,
+              name: `${name} ${familyName}`,
+              provider: user.providerData[0].providerId,
+              photoUrl: randomPhoto,
+              puntos: 0,
+            });
+          firebase
+            .firestore()
+            .collection("users")
+            .doc(user.uid)
+            .collection("quiniela")
+            .doc("resultados")
+            .set({
+              resultados: quiniela,
+            });
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorMessage);
 
-        const translate = {
-          "The email address is already in use by another account.":
-            "Este correo ya está en uso",
-          "The email address is badly formatted.":
-            "El formato del correo electrónico es incorrecto.",
-          "The password must be 6 characters long or more.":
-            "La contraseña debe tener 6 caracteres o más.",
-          "Password should be at least 6 characters":
-            "La contraseña debe tener 6 caracteres o más.",
-        };
+          const translate = {
+            "The email address is already in use by another account.":
+              "Este correo ya está en uso",
+            "The email address is badly formatted.":
+              "El formato del correo electrónico es incorrecto.",
+            "The password must be 6 characters long or more.":
+              "La contraseña debe tener 6 caracteres o más.",
+            "Password should be at least 6 characters":
+              "La contraseña debe tener 6 caracteres o más.",
+          };
 
-        setTimeout(() => {
-          toast.error(translate[errorMessage]);
-        }, 100);
-      });
+          setTimeout(() => {
+            toast.error(translate[errorMessage]);
+          }, 100);
+        });
+    } else {
+      alert("No se permiten palabras malsonantes");
+    }
   }
-
-  const [errorMessage, setErrorMessage] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [familyName, setFamilyName] = useState("");
-  const [user, userLoading] = useAuthState(firebase.auth());
 
   // get email and password from user
   const handleEmailChange = (e) => {
@@ -180,7 +191,7 @@ export default function Login({}: Props): ReactElement {
                   </Link>
                 </p>
               </div>
-              <form className="mt-8 space-y-6" action="#" method="POST">
+              <form className="mt-8 space-y-6" onSubmit={signUpwithEmail}>
                 <input type="hidden" name="remember" defaultValue="true" />
                 <div className="-space-y-px rounded-md shadow-sm">
                   <div>
@@ -249,8 +260,7 @@ export default function Login({}: Props): ReactElement {
 
                 <div>
                   <button
-                    onClick={signUpwithEmail}
-                    type="button"
+                    type="submit"
                     className="group relative flex w-full justify-center rounded-md border border-transparent bg-[#630E2B] py-2 px-4 text-sm font-medium text-white hover:bg-[#5b0d27] focus:outline-none focus:ring-2 focus:ring-[#3e091b] focus:ring-offset-2 shadow-lg transition ease-in duration-200 hover:shadow-xl "
                   >
                     <span className="absolute inset-y-0 left-0 flex items-center pl-3">
