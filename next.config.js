@@ -1,5 +1,6 @@
 module.exports = {
   reactStrictMode: true,
+  defaultLocale: "es",
   // image domain
   images: {
     domains: [
