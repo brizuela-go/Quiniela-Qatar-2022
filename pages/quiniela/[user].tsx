@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import QuinielaLlenar from "../../components/QuinielaLlenar";
 import { useRouter } from "next/router";
-import firebase from "../../firebase/firebaseClient";
 import { getUserDetails, getUserQuiniela } from "../../firebase/utils";
-import { useAuthState } from "react-firebase-hooks/auth";
 import Head from "next/head";
+import { useStateContext } from "../../context/PremiumContext";
 
 export async function getServerSideProps({ query }) {
   const res = await fetch(
@@ -43,7 +42,7 @@ export async function getServerSideProps({ query }) {
 }
 
 export default function Quiniela({ data, locales, visitantes, userDetails }) {
-  const [_user, userLoading] = useAuthState(firebase.auth());
+  const { _user, userLoading } = useStateContext();
   const router = useRouter();
   useEffect(() => {
     if (!_user && !userLoading) {

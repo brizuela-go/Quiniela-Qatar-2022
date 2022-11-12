@@ -1,6 +1,7 @@
 import MUIDataTable from "mui-datatables";
 import Avatar from "@material-ui/core/Avatar";
 import Link from "next/link";
+import firebase from "../firebase/firebaseClient";
 
 const columns = [
   {
@@ -9,6 +10,7 @@ const columns = [
     options: {
       filter: true,
       sort: true,
+      sorted: true,
     },
   },
   {
@@ -45,12 +47,37 @@ const columns = [
   },
 ];
 
-export default function Marcadores({ users }) {
+export default function Marcadores({ users, resultados }) {
   let data = [];
+  let userResults = [];
+
+  users.forEach((user, index) => {
+    firebase
+      .firestore()
+      .collection("users")
+      .doc(user.uid)
+      .collection("quiniela")
+      .get()
+      .then((snapshot) => {
+        snapshot.docs.forEach((doc) => {
+          userResults.push(doc.data());
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+
+  for (let i = 1; i <= 48; i++) {
+    console.log(resultados[i].local[Object.keys(resultados[i].local)[0]]);
+    console.log(
+      resultados[i].visitante[Object.keys(resultados[i].visitante)[0]]
+    );
+  }
 
   users.map((user, index) => {
     data.push({
-      position: 1,
+      position: index + 1,
       foto: <Avatar alt={user.name} src={user.photoUrl}></Avatar>,
       name: user.name,
       puntos: user.puntos,

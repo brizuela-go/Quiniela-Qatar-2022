@@ -28,9 +28,8 @@ const icons = {
 };
 
 export default function Home() {
-  const [user, userLoading] = useAuthState(firebase.auth());
   const [name, setName] = useState("");
-  const { userIsPremium } = useStateContext();
+  const { userIsPremium, _user, userLoading } = useStateContext();
 
   // get lenght of users collection in firestore
   const [users, setUsers] = useState(0);
@@ -47,7 +46,7 @@ export default function Home() {
   firebase
     .firestore()
     .collection("users")
-    .doc(user?.uid)
+    .doc(_user?.uid)
     .get()
     .then((doc) => {
       if (doc.exists) {
@@ -61,10 +60,10 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    if (!user && !userLoading) {
+    if (!_user && !userLoading) {
       router.push("/login");
     }
-  }, [user, userLoading, router]);
+  }, [_user, userLoading, router]);
 
   async function signOut() {
     await firebase.auth().signOut();
@@ -74,12 +73,12 @@ export default function Home() {
     <div>
       <Toaster position="top-center" reverseOrder={false} />
 
-      {user && !userLoading && (
+      {_user && !userLoading && (
         <div className="">
           {userIsPremium ? (
             <div className="animate__animated animate__fadeIn lg:m-10 flex flex-col justify-center items-center my-10 mx-0 gap-y-20">
               <Card sx={{ maxWidth: "70%" }}>
-                <Link href={`/quiniela/${user?.uid}`}>
+                <Link href={`/quiniela/${_user?.uid}`}>
                   <CardActionArea>
                     <CardMedia
                       component="img"
@@ -119,14 +118,14 @@ export default function Home() {
               </Card>
             </div>
           ) : (
-            <div className="animate__animated animate__fadeIn animate__delay-1s  bg-[url('/cup.jpg')] bg-cover   h-screen">
+            <div className="animate__animated animate__fadeIn animate__delay-2s  bg-[url('/cup.jpg')] bg-cover   h-screen">
               {/* card */}
               <div className="flex flex-col items-center justify-center h-full ">
-                <div className="bg-white rounded-lg shadow-xl p-10 animate__animated animate__fadeIn animate__delay-1s mx-4">
-                  <h1 className="lg:text-4xl text-3xl font-bold mb-5 animate__animated animate__fadeIn animate__delay-2s text-center">
+                <div className="bg-white rounded-lg shadow-xl p-10 animate__animated animate__fadeIn animate__delay-2s mx-4">
+                  <h1 className="lg:text-4xl text-3xl font-bold mb-5 animate__animated animate__fadeIn animate__delay-3s text-center">
                     ¡Hola, {name.split(" ")[0]}!
                   </h1>
-                  <p className="text-gray-700 mb-5 text-center text-base animate__animated animate__fadeIn animate__delay-3s">
+                  <p className="text-gray-700 mb-5 text-center text-base animate__animated animate__fadeIn animate__delay-4s">
                     <Typewriter
                       options={{
                         strings: [
@@ -152,10 +151,10 @@ export default function Home() {
                   </p>
                   <div className="flex justify-center gap-4">
                     <button
-                      className=" bg-gradient-to-r from-violet-600 to-violet-800 hover:bg-blue-600 text-white font-bold py-2 px-5 lg:px-8 rounded shadow-lg hover:shadow-xl transition duration-200 hover:via-violet-700 hover:to-violet-900 focus:from-violet-800 focus:to-violet-900 animate__animated animate__fadeIn animate__delay-4s text-sm"
+                      className=" bg-gradient-to-r from-violet-600 to-violet-800 hover:bg-blue-600 text-white font-bold py-2 px-5 lg:px-8 rounded shadow-lg hover:shadow-xl transition duration-200 hover:via-violet-700 hover:to-violet-900 focus:from-violet-800 focus:to-violet-900 animate__animated animate__fadeIn animate__delay-5s text-sm"
                       onClick={() =>
                         setTimeout(() => {
-                          toast.promise(createCheckoutSession(user.uid), {
+                          toast.promise(createCheckoutSession(_user.uid), {
                             loading: "Creando sesión de pago...",
                             success: "Redireccionando",
                             error: "Error",
@@ -166,7 +165,7 @@ export default function Home() {
                       Pago Seguro
                     </button>
                     <button
-                      className=" bg-gradient-to-r from-red-600 to-red-800  text-white font-bold py-2 px-5 lg:px-8 rounded shadow-lg hover:shadow-xl transition duration-200 hover:via-red-800 hover:to-red-900 animate__animated animate__fadeIn animate__delay-4s text-sm"
+                      className=" bg-gradient-to-r from-red-600 to-red-800  text-white font-bold py-2 px-5 lg:px-8 rounded shadow-lg hover:shadow-xl transition duration-200 hover:via-red-800 hover:to-red-900 animate__animated animate__fadeIn animate__delay-5s text-sm"
                       onClick={() => {
                         navigator.clipboard.writeText("002668082674240560");
                         toast.success("¡CLABE Copiada!");
@@ -177,7 +176,7 @@ export default function Home() {
                     </button>
                   </div>
 
-                  <div className="flex  flex-col justify-center items-center mt-7 animate__animated animate__fadeIn animate__delay-4s">
+                  <div className="flex  flex-col justify-center items-center mt-7 animate__animated animate__fadeIn animate__delay-5s">
                     <p className="text-gray-500 text-center text-xs">
                       ¿Ya pagaste tu quiniela?
                     </p>

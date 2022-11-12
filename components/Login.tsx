@@ -10,6 +10,7 @@ import Image from "next/image";
 import logo from "../public/logo.png";
 import toast, { Toaster } from "react-hot-toast";
 import quiniela from "../quiniela.json";
+import { useStateContext } from "../context/PremiumContext";
 
 interface Props {}
 
@@ -92,15 +93,15 @@ export default function Login({}: Props): ReactElement {
   const [errorMessage, setErrorMessage] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, userLoading] = useAuthState(firebase.auth());
+  const { _user, userLoading } = useStateContext();
 
   const router = useRouter();
 
   useEffect(() => {
-    if (user && !userLoading) {
+    if (_user && !userLoading) {
       router.push("/");
     }
-  }, [user, userLoading, router]);
+  }, [_user, userLoading, router]);
 
   // get email and password from user
   const handleEmailChange = (e) => {

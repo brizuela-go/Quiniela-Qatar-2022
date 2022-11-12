@@ -6,13 +6,15 @@ import firebase from "../firebase/firebaseClient";
 const Context = createContext();
 
 export const PremiumContext = ({ children }) => {
-  const [user] = useAuthState(firebase.auth());
-  const userIsPremium = usePremiumStatus(user);
+  const [_user, userLoading] = useAuthState(firebase.auth());
+  const userIsPremium = usePremiumStatus(_user);
 
   return (
     <Context.Provider
       value={{
         userIsPremium,
+        _user,
+        userLoading,
       }}
     >
       {children}

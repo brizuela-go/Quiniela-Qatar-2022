@@ -10,6 +10,7 @@ import Image from "next/image";
 import logo from "../public/logo.png";
 import toast, { Toaster } from "react-hot-toast";
 import quiniela from "../quiniela.json";
+import { useStateContext } from "../context/PremiumContext";
 
 interface Props {}
 
@@ -24,7 +25,7 @@ export default function Login({}: Props): ReactElement {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [familyName, setFamilyName] = useState("");
-  const [user, userLoading] = useAuthState(firebase.auth());
+  const { _user, userLoading } = useStateContext();
 
   async function signInWithGoogle() {
     const userCredentials = await firebase
@@ -157,10 +158,10 @@ export default function Login({}: Props): ReactElement {
   const router = useRouter();
 
   useEffect(() => {
-    if (user && !userLoading) {
+    if (_user && !userLoading) {
       router.push("/");
     }
-  }, [user, userLoading, router]);
+  }, [_user, userLoading, router]);
 
   return (
     <>

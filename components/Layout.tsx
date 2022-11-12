@@ -8,9 +8,8 @@ import firebase from "../firebase/firebaseClient";
 import { useStateContext } from "../context/PremiumContext";
 
 const Layout = ({ children }) => {
-  const [_user, userLoading] = useAuthState(firebase.auth());
   const [userPhoto, setUserPhoto] = React.useState("");
-  const { userIsPremium } = useStateContext();
+  const { _user, userLoading, userIsPremium } = useStateContext();
 
   const router = useRouter();
 
@@ -73,23 +72,7 @@ const Layout = ({ children }) => {
       <main>{children}</main>
 
       <div className={router.pathname !== "/" && "hidden"}>
-        <div className=" m-8">
-          <div
-            className=" mb-16 mt-8"
-            id="sportmonks-widget"
-            data-widget="wc-standings-slider"
-            data-info="jXcPxsVvMX9CoSPHSAidnOc3VioT377oUCO7OSHMR3joUA5AECaxUo2cptFP1pPebxJouujerNRV/jGGPbxgwxxIKz6/tUU49Sy3dq/gzrFzhQOePyF5T/tWceY0OqLS4+zRC41ydqeY9ij+/DOEnSv4zmqB/nT9Vls59/uNtMrfOwFt/y35hJ0Mw0MMHkWW5Csvw6mc8zvKrykqD5XzMp+RWAgQymJmq2DDwtYdRIt5ZJgc5PEsUhu2gqz8hCO9G/uDgIn/blCtufyFqktIdcHekeaTY8dAD1Px0heYKZtgbVQDF1sLKS7KhFvjKWeb50B3uy6viFeb1a/KRPqWTOFgHLGOuxyn615fGjybtKqYRJ0/z1abgOM4hSEMM+loto0skRyOai1ctsU01GHG7NosmDgi9TwKcFYaWl7lfw44V69lcqvLB7DY4TjVF0LSIVfaQCbv0fx6Uui1Xqu0d5LiOPuLuVh5qwcQxXbOhqJsdut8kibJuiWKfcmuVQTMBdL4yNB80uF3QuBQWMQiWlrWZor/E0M5/lDHQC3kPVk30TVAiHzo+eR5wtEMcMofcHSNR5QxoksssKjEc7NmwAwneoCpwSrR5hfm2ktxjY4CYpYg3LR+nXmgB4Y/zXb6H93W+HlEYrQ8QwsaLZHtjdnp7Se5H/LNneSkrprkLeY="
-            data-colors="#3C041D,#1893C1,#D0D0D9,#7F1431"
-            data-font="Roboto"
-          ></div>
-          <div
-            id="sportmonks-widget"
-            data-widget="wc-livescore"
-            data-info="C645gd8gEttIIRoTxzC/e3wZZBi9BPLttxTRDPbtAzlJ8yyROKH+KqbBSsKmiT+5JQtsKlLQ35hBcHD4woT1+cFv4stlA7ahCD2FA8FiSxl4bKB0J+QjifPDtFmmUBVSASgtBhpdNLtm4iHsx0YFvxdks5gjpvQILwQyvd4S9+41YICfhnBUAKudLJRJOHtzShZ4GeSyRZwooWUWos/eAvuWrlAik0xTKKx9TlTaM+ZPI90SbiJilp9MwqKvvl4bM37RE+fTI+p656CSHT8DObVmKYUXk2CRh8QiR+vRSNKYwqCIKwi19T6iExEqLgf4cPKYwS+8nQ7TaAdCoYteB9wMgJMtRZi8TzoFOm9UFbP/ThvmLFUaIsqEFya8Ktho9eHreUL+tR2x5QdTMWCYvEZW9gG41KDzQy1AAUxbtti8q+RIsJZCRveYkRNyQeU05g5oTJ8gjE7xBMicbvb5p8jgePFu+DgIE2Xkl9nggNi00QyOuyaexLY3DiiZs4VDiXeT2Kza7FdCxax0x+eAeGhzzoCxLNDYhz9FfTC8NWnXkDsIeK4Zw8Z1BNWL++g7OLZvRieUPS57dVgkkgUG4A2gulVlGfi0Wjp7xs8SSuBEtVTcLnIVZd+VhJAbasxgCCVhvhXsiwYNz19jYaL1HUfV6sBAWOef2EuL9YYWz+o="
-            data-tz="America/Mexico_City"
-            data-font="Roboto"
-          ></div>
-        </div>
+        <div className=" m-8"></div>
       </div>
 
       <footer>{_user && !userLoading && userIsPremium && <Footer />}</footer>

@@ -19,8 +19,7 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
   const [visitante, setVisitante] = useState(visitantes);
   const [edit, setEdit] = useState(true);
 
-  const [user] = useAuthState(firebase.auth());
-  const { userIsPremium } = useStateContext();
+  const { _user, userIsPremium } = useStateContext();
 
   const router = useRouter();
 
@@ -96,14 +95,14 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
       {userIsPremium ? (
         <form onSubmit={saveResults}>
           <Toaster />
-          {user?.uid !== uid && (
+          {_user?.uid !== uid && (
             <div className="flex justify-center">
               <h1 className="text-xl font-bold mt-10">
                 Quiniela de {userName}{" "}
               </h1>
             </div>
           )}
-          {user?.uid === uid && (
+          {_user?.uid === uid && (
             <div className="flex flex-row lg:justify-end   mb-10 mt-20 gap-6 lg:mr-10 justify-center">
               <Fab
                 variant="extended"
@@ -365,7 +364,7 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
               </div>
             ))}
           </div>
-          {user?.uid === uid && (
+          {_user?.uid === uid && (
             <div className="flex flex-row    my-10 gap-6 lg:mr-10 justify-center">
               <Fab
                 variant="extended"

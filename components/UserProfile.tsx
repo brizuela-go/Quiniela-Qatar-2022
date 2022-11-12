@@ -10,10 +10,9 @@ import Link from "next/link";
 type Props = {};
 
 const UserProfile = ({ user }) => {
-  const [_user, userLoading] = useAuthState(firebase.auth());
   const router = useRouter();
 
-  const { userIsPremium } = useStateContext();
+  const { _user, userLoading, userIsPremium } = useStateContext();
   useEffect(() => {
     if (!userIsPremium) {
       router.push("/");
