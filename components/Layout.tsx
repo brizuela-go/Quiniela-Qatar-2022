@@ -3,9 +3,9 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { useAuthState } from "react-firebase-hooks/auth";
 import firebase from "../firebase/firebaseClient";
 import { useStateContext } from "../context/PremiumContext";
+import Script from "next/script";
 
 const Layout = ({ children }) => {
   const [userPhoto, setUserPhoto] = React.useState("");
@@ -76,14 +76,14 @@ const Layout = ({ children }) => {
       </div>
 
       <footer>{_user && !userLoading && userIsPremium && <Footer />}</footer>
-      <script
+      <Script
         type="text/javascript"
         src="https://widgets.sportmonks.com/js/world-cup/livescore.js"
-      ></script>
-      <script
+      ></Script>
+      <Script
         type="text/javascript"
         src="https://widgets.sportmonks.com/js/world-cup/standingsSlider.js"
-      ></script>
+      ></Script>
     </body>
   );
 };

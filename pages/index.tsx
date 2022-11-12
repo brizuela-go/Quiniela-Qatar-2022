@@ -78,7 +78,7 @@ export default function Home() {
           {userIsPremium ? (
             <div className="animate__animated animate__fadeIn lg:m-10 flex flex-col justify-center items-center my-10 mx-0 gap-y-20">
               <Card sx={{ maxWidth: "70%" }}>
-                <Link href={`/quiniela/${_user?.uid}`}>
+                <Link passHref href={`/quiniela/${_user?.uid}`}>
                   <CardActionArea>
                     <CardMedia
                       component="img"
@@ -98,7 +98,7 @@ export default function Home() {
                 </Link>
               </Card>
               <Card sx={{ maxWidth: "70%" }}>
-                <Link href={`/marcadores`}>
+                <Link passHref href={`/marcadores`}>
                   <CardActionArea>
                     <CardMedia
                       component="img"
