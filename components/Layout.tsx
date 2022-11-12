@@ -92,14 +92,14 @@ const Layout = ({ children }) => {
       </div>
 
       <footer>{_user && !userLoading && userIsPremium && <Footer />}</footer>
-      <Script
+      <script
         type="text/javascript"
         src="https://widgets.sportmonks.com/js/world-cup/livescore.js"
-      ></Script>
-      <Script
+      ></script>
+      <script
         type="text/javascript"
         src="https://widgets.sportmonks.com/js/world-cup/standingsSlider.js"
-      ></Script>
+      ></script>
     </body>
   );
 };
