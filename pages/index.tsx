@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import firebase from "../firebase/firebaseClient";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { createCheckoutSession } from "../stripe/createCheckoutSession";
-import usePremiumStatus from "../stripe/usePremiumStatus";
 import { useRouter } from "next/router";
 import Typewriter from "typewriter-effect";
 import Image from "next/image";
@@ -135,13 +134,13 @@ export default function Home() {
                           `¡Ya van ${users} usuarios registrados!`,
                           "Entre más usuarios se registren, mejores serán los premios.",
                           `¡El premio para el primer lugar es de $${Math.round(
-                            users * 225 * 0.65
+                            users * 225 * 0.6
                           )} pesos!`,
                           `¡El premio para el segundo lugar es de $${Math.round(
-                            users * 225 * 0.225
+                            users * 225 * 0.3
                           )} pesos!`,
                           `¡El premio para el tercer lugar es de $${Math.round(
-                            users * 225 * 0.125
+                            users * 225 * 0.1
                           )} pesos!`,
                         ],
                         autoStart: true,
