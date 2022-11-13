@@ -122,7 +122,7 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
               </Fab>
             </div>
           )}
-          <div className={"rounded-lg bg-white shadow-lg lg:m-10 m-3 "}>
+          <div className={"rounded-lg bg-white shadow-lg lg:m-8 m-3 "}>
             <div className="flex flex-row justify-center items-center bg-gradient-to-r from-[#4D0822] via-[#7C1330] to-[#4D0822]  p-3">
               <h2 className="text-[#e5bdd0] text-2xl">Fase de Grupos</h2>
             </div>
@@ -151,6 +151,7 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
                                 disableFocusListener
                                 title={
                                   edit &&
+                                  _user?.uid === uid &&
                                   `Haz click en "Editar" para poder modificar los resultados`
                                 }
                               >
@@ -163,7 +164,7 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
                                     ]
                                   )}
                                   title={"Haz click en editar para modificar"}
-                                  className="w-12 h-7 pr-0 pl-2 text-center border -ml-8  shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none "
+                                  className="w-12 h-7 pr-0 pl-2 text-center border lg:-ml-8 ml-ipad shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none "
                                   disabled={edit}
                                   placeholder="#"
                                   name={partido["HomeTeam"]}
@@ -210,6 +211,7 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
                                 disableFocusListener
                                 title={
                                   edit &&
+                                  _user?.uid === uid &&
                                   `Haz click en "Editar" para poder modificar los resultados`
                                 }
                               >
@@ -265,6 +267,7 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
                                 disableFocusListener
                                 title={
                                   edit &&
+                                  _user?.uid === uid &&
                                   `Haz click en "Editar" para poder modificar los resultados`
                                 }
                               >
@@ -310,6 +313,7 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
                                 disableFocusListener
                                 title={
                                   edit &&
+                                  _user?.uid === uid &&
                                   `Haz click en "Editar" para poder modificar los resultados`
                                 }
                               >

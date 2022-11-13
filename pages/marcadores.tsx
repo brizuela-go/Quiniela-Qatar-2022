@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import { useStateContext } from "../context/PremiumContext";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const snapshot = await firebase
     .firestore()
     .collection("users")
@@ -19,6 +19,12 @@ export async function getServerSideProps() {
     .doc("mhHvk0BDGehDfhoAQzYvJ3i1TVS2")
     .get();
   let resultados = snapshot2.data();
+
+  const snapshot3 = await firebase
+    .firestore()
+    .collection("users")
+    .orderBy("puntos", "desc")
+    .get();
 
   return {
     props: {

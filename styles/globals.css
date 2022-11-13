@@ -31,3 +31,9 @@ a {
 .edit-button {
   background-color: #fff !important;
 }
+
+@media (min-width: 1024px) and (max-width: 1370px) {
+  .ml-ipad {
+    margin-left: -4rem !important /* -64px */;
+  }
+}

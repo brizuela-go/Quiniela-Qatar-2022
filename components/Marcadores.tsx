@@ -51,6 +51,21 @@ export default function Marcadores({ users, resultados }) {
   let data = [];
   let userResults = [];
 
+  let homeScores = [];
+  let awayScores = [];
+
+  let realHomeScores = [];
+  let realAwayScores = [];
+
+  for (let i = 1; i <= 48; i++) {
+    realHomeScores.push(
+      resultados[i].local[Object.keys(resultados[i].local)[0]]
+    );
+    realAwayScores.push(
+      resultados[i].visitante[Object.keys(resultados[i].visitante)[0]]
+    );
+  }
+
   users.forEach((user, index) => {
     firebase
       .firestore()
@@ -67,13 +82,6 @@ export default function Marcadores({ users, resultados }) {
         console.log(error);
       });
   });
-
-  for (let i = 1; i <= 48; i++) {
-    console.log(resultados[i].local[Object.keys(resultados[i].local)[0]]);
-    console.log(
-      resultados[i].visitante[Object.keys(resultados[i].visitante)[0]]
-    );
-  }
 
   users.map((user, index) => {
     data.push({
