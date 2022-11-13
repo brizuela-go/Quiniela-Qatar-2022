@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import { useStateContext } from "../context/PremiumContext";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const snapshot = await firebase
     .firestore()
     .collection("users")
