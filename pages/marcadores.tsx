@@ -26,15 +26,30 @@ export async function getServerSideProps() {
     .orderBy("puntos", "desc")
     .get();
 
+  // retrieve all the "quiniela" collections from snapshot3
+  const quinielas = await Promise.all(
+    snapshot3.docs.map(async (doc) => {
+      const quiniela = await doc.ref.collection("quiniela").get();
+      return quiniela.docs.map((doc) => doc.data());
+    })
+  );
+
+  let usersQuiniela = quinielas.flat().flat();
+
   return {
     props: {
       users,
       resultados,
+      usersQuiniela,
     },
   };
 }
 
-export default function TablaDeMarcadores({ users, resultados }) {
+export default function TablaDeMarcadores({
+  users,
+  resultados,
+  usersQuiniela,
+}) {
   const { _user, userLoading } = useStateContext();
 
   const router = useRouter();
@@ -52,7 +67,11 @@ export default function TablaDeMarcadores({ users, resultados }) {
           content="Tabla de Posiciones de La Quiniela de Arturo de la Copa Mundial de la FIFA 2022"
         />
       </Head>
-      <Marcadores users={users} resultados={resultados.resultados} />{" "}
+      <Marcadores
+        users={users}
+        resultados={resultados.resultados}
+        usersQuiniela={usersQuiniela}
+      />
     </>
   );
 }

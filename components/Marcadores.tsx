@@ -47,9 +47,8 @@ const columns = [
   },
 ];
 
-export default function Marcadores({ users, resultados }) {
+export default function Marcadores({ users, resultados, usersQuiniela }) {
   let data = [];
-  let userResults = [];
 
   let homeScores = [];
   let awayScores = [];
@@ -67,25 +66,112 @@ export default function Marcadores({ users, resultados }) {
   }
 
   users.forEach((user, index) => {
-    firebase
-      .firestore()
-      .collection("users")
-      .doc(user.uid)
-      .collection("quiniela")
-      .get()
-      .then((snapshot) => {
-        snapshot.docs.forEach((doc) => {
-          userResults.push(doc.data());
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    let points = 0;
+
+    for (let i = 1; i <= 48; i++) {
+      homeScores.push(
+        parseInt(
+          usersQuiniela[index].resultados[i].local[
+            Object.keys(resultados[i].local)[0]
+          ]
+        )
+      );
+      awayScores.push(
+        parseInt(
+          usersQuiniela[index].resultados[i].visitante[
+            Object.keys(resultados[i].visitante)[0]
+          ]
+        )
+      );
+    }
+
+    // separate the array every 48 elements
+    let homeScoresSeparated = homeScores.reduce((resultArray, item, index) => {
+      const chunkIndex = Math.floor(index / 48);
+
+      if (!resultArray[chunkIndex]) {
+        resultArray[chunkIndex] = []; // start a new chunk
+
+        resultArray[chunkIndex].push(item);
+      } else {
+        resultArray[chunkIndex].push(item);
+      }
+
+      return resultArray;
+    }, []);
+
+    let awayScoresSeparated = awayScores.reduce((resultArray, item, index) => {
+      const chunkIndex = Math.floor(index / 48);
+
+      if (!resultArray[chunkIndex]) {
+        resultArray[chunkIndex] = []; // start a new chunk
+
+        resultArray[chunkIndex].push(item);
+      } else {
+        resultArray[chunkIndex].push(item);
+      }
+
+      return resultArray;
+    }, []);
+
+    for (let i = 0; i < realHomeScores.length; i++) {
+      if (realHomeScores[i] !== null && realAwayScores[i] !== null) {
+        if (
+          homeScoresSeparated[index][i] > awayScoresSeparated[index][i] &&
+          realHomeScores[i] > realAwayScores[i]
+        ) {
+          points +=
+            10 -
+            (Math.abs(realHomeScores[i] - homeScoresSeparated[index][i]) +
+              Math.abs(realAwayScores[i] - awayScoresSeparated[index][i]));
+        } else if (
+          homeScoresSeparated[index][i] < awayScoresSeparated[index][i] &&
+          realHomeScores[i] < realAwayScores[i]
+        ) {
+          points +=
+            10 -
+            (Math.abs(realHomeScores[i] - homeScoresSeparated[index][i]) +
+              Math.abs(realAwayScores[i] - awayScoresSeparated[index][i]));
+        } else if (
+          homeScoresSeparated[index][i] === awayScoresSeparated[index][i] &&
+          realHomeScores[i] === realAwayScores[i]
+        ) {
+          points +=
+            10 -
+            (Math.abs(realHomeScores[i] - homeScoresSeparated[index][i]) +
+              Math.abs(realAwayScores[i] - awayScoresSeparated[index][i]));
+        }
+      }
+    }
+
+    firebase.firestore().collection("users").doc(user.uid).update({
+      puntos: points,
+    });
+  });
+
+  // create positions, if two users have the same points, they will have the same position
+  let positions = [];
+  let position = 1;
+  let lastPoints = 0;
+
+  users.forEach((user, index) => {
+    if (index === 0) {
+      positions.push(position);
+      lastPoints = user.puntos;
+    } else {
+      if (user.puntos === lastPoints) {
+        positions.push(position);
+      } else {
+        position++;
+        positions.push(position);
+        lastPoints = user.puntos;
+      }
+    }
   });
 
   users.map((user, index) => {
     data.push({
-      position: index + 1,
+      position: positions[index],
       foto: <Avatar alt={user.name} src={user.photoUrl}></Avatar>,
       name: user.name,
       puntos: user.puntos,
