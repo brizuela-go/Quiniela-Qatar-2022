@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import flags from "../flags.json";
 import Image from "next/image";
 import { GiSoccerField } from "react-icons/gi";
 import { BiTimeFive } from "react-icons/bi";
@@ -13,7 +12,7 @@ import Skeleton from "@mui/material/Skeleton";
 import { useStateContext } from "../context/PremiumContext";
 import Tooltip from "@mui/material/Tooltip";
 
-const QuinielaLlenar = ({ data, locales, visitantes, userDetails }) => {
+const QuinielaLlenar = ({ data, locales, visitantes, userDetails, flags }) => {
   const [local, setLocal] = useState(locales);
   const [visitante, setVisitante] = useState(visitantes);
   const [edit, setEdit] = useState(true);

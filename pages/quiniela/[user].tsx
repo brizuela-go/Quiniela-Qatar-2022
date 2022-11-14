@@ -11,6 +11,12 @@ export async function getServerSideProps({ query }) {
   );
   const data = await res.json();
 
+  const flagsRes = await fetch(
+    "https://quiniela-qatar-2022.vercel.app/api/flags"
+  );
+
+  const flagsData = await flagsRes.json();
+
   const uid = query["user"];
 
   let userData = (await getUserQuiniela(uid)) || null;
@@ -37,11 +43,18 @@ export async function getServerSideProps({ query }) {
       locales,
       visitantes,
       userDetails,
+      flagsData,
     },
   };
 }
 
-export default function Quiniela({ data, locales, visitantes, userDetails }) {
+export default function Quiniela({
+  data,
+  locales,
+  visitantes,
+  userDetails,
+  flagsData,
+}) {
   const { _user, userLoading } = useStateContext();
   const router = useRouter();
   useEffect(() => {
@@ -64,6 +77,7 @@ export default function Quiniela({ data, locales, visitantes, userDetails }) {
         locales={locales}
         visitantes={visitantes}
         userDetails={userDetails}
+        flags={flagsData}
       />
     </>
   );
