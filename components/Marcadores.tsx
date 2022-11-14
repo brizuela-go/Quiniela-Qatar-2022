@@ -176,7 +176,7 @@ export default function Marcadores({ users, resultados, usersQuiniela }) {
       name: user.name,
       puntos: user.puntos,
       detalles: (
-        <Link href={`/users/${user.uid}`}>
+        <Link prefetch={true} href={`/users/${user.uid}`}>
           <a className=" underline">Ver detalles</a>
         </Link>
       ),

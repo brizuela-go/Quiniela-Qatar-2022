@@ -63,7 +63,7 @@ const UserProfile = ({ user }) => {
                   </div>
                 </div>
                 <div className="mb-8">
-                  <Link passHref href={`/quiniela/${user.uid}`}>
+                  <Link prefetch={true} passHref href={`/quiniela/${user.uid}`}>
                     <a className=" bg-rose-800 text-white px-4 py-2 rounded shadow-lg hover:shadow-xl hover:bg-rose-900 ">
                       Ver Quiniela
                     </a>
