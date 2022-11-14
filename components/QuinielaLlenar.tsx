@@ -94,7 +94,7 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails, flags }) => {
         <form onSubmit={saveResults}>
           <Toaster />
           {_user?.uid !== uid && (
-            <div className="flex justify-center">
+            <div className="flex justify-center text-center">
               <h1 className="text-xl font-bold mt-10">
                 Quiniela de {userName}{" "}
               </h1>
