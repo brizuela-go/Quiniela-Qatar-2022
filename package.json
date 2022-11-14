@@ -27,8 +27,6 @@
     "react-firebase-hooks": "^3.0.4",
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.6.0",
-    "react-loader-spinner": "^5.3.4",
-    "react-paypal-button-v2": "^2.6.3",
     "react-toastify": "^9.1.1",
     "stripe": "^10.15.0",
     "typewriter-effect": "^2.19.0"

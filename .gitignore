@@ -37,3 +37,6 @@ yarn-error.log*
 #vscode
 .vscode
 .history
+
+# Sentry
+.sentryclirc

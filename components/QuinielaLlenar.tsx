@@ -5,7 +5,6 @@ import { GiSoccerField } from "react-icons/gi";
 import { BiTimeFive } from "react-icons/bi";
 import firebase from "../firebase/firebaseClient";
 import { useRouter } from "next/router";
-import { useAuthState } from "react-firebase-hooks/auth";
 import toast, { Toaster } from "react-hot-toast";
 import EditIcon from "@mui/icons-material/Edit";
 import SaveIcon from "@mui/icons-material/Save";
