@@ -186,7 +186,6 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails, flags }) => {
                                     width={48}
                                     height={48}
                                     quality={100}
-                                    priority
                                   />
                                 </div>
                               </div>
@@ -254,7 +253,6 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails, flags }) => {
                                     width={48}
                                     height={48}
                                     quality={100}
-                                    priority
                                   />
                                 </div>
                                 <h4 className="mt-2 text-lg">
@@ -300,7 +298,6 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails, flags }) => {
                                     width={48}
                                     height={48}
                                     quality={100}
-                                    priority
                                   />
                                 </div>
                                 <h4 className="mt-2 text-lg">
