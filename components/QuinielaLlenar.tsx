@@ -16,6 +16,7 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails, flags }) => {
   const [local, setLocal] = useState(locales);
   const [visitante, setVisitante] = useState(visitantes);
   const [edit, setEdit] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   const { _user, userIsPremium } = useStateContext();
 
@@ -88,9 +89,15 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails, flags }) => {
     }
   }, [userIsPremium, router]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
   return (
     <>
-      {userIsPremium ? (
+      {!loading ? (
         <form onSubmit={saveResults}>
           <Toaster />
           {_user?.uid !== uid && (
