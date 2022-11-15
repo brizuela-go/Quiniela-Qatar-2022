@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import firebase from "../firebase/firebaseClient";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { createCheckoutSession } from "../stripe/createCheckoutSession";
 import { useRouter } from "next/router";
 import Typewriter from "typewriter-effect";
 import Image from "next/image";
 import toast, { Toaster } from "react-hot-toast";
 import { useStateContext } from "../context/PremiumContext";
+import { FaUsers } from "react-icons/fa";
+import { FaPiggyBank } from "react-icons/fa";
 
 import { BsWhatsapp } from "react-icons/bs";
 import { MdContentCopy } from "react-icons/md";
@@ -76,46 +77,72 @@ export default function Home() {
       {_user && !userLoading && (
         <div className="">
           {userIsPremium ? (
-            <div className="animate__animated animate__fadeIn lg:m-10 flex flex-col justify-center items-center my-10 mx-0 gap-y-20">
-              <Card sx={{ maxWidth: "70%" }}>
-                <Link passHref href={`/quiniela/${_user?.uid}`}>
-                  <CardActionArea>
-                    <CardMedia
-                      component="img"
-                      image="/quiniela.png"
-                      alt="quiniela"
-                    />
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="div">
-                        Mi Quiniela
-                      </Typography>
+            <div className="animate__animated animate__fadeIn animate__delay-1s">
+              <div className="sm:flex sm:justify-center sm:flex-row  flex-col m-12  gap-x-12 space-y-6 sm:space-y-0">
+                <div className=" bg-white shadow-lg  rounded-xl p-4">
+                  <div className="flex justify-between space-x-5">
+                    <div>
+                      <h4 className=" font-normal">Usuarios Registrados</h4>
+                      <h4 className="font-bold">{users}</h4>
+                    </div>
+                    <div>
+                      <FaUsers className="text-4xl text-gray-800" />
+                    </div>
+                  </div>
+                </div>
+                <div className=" bg-white shadow-lg  rounded-xl p-4 ">
+                  <div className="flex justify-between space-x-5">
+                    <div>
+                      <h4 className=" font-normal">Premio por Repartir</h4>
+                      <h4 className="font-bold ">${users * 225}</h4>
+                    </div>
+                    <div>
+                      <FaPiggyBank className="text-4xl text-gray-800" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="lg:m-10 flex flex-col justify-center items-center my-10 mx-0 gap-y-20">
+                <Card sx={{ maxWidth: "70%" }}>
+                  <Link passHref href={`/quiniela/${_user?.uid}`}>
+                    <CardActionArea>
+                      <CardMedia
+                        component="img"
+                        image="/quiniela.png"
+                        alt="quiniela"
+                      />
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                          Mi Quiniela
+                        </Typography>
 
-                      <Typography variant="body2" color="text.secondary">
-                        Llena, edita y ve tu quiniela.
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                </Link>
-              </Card>
-              <Card sx={{ maxWidth: "70%" }}>
-                <Link passHref href={`/marcadores`}>
-                  <CardActionArea>
-                    <CardMedia
-                      component="img"
-                      image="/resultados.jpg"
-                      alt="quiniela"
-                    />
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="div">
-                        Marcadores
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        Ver la tabla de posiciones.
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                </Link>
-              </Card>
+                        <Typography variant="body2" color="text.secondary">
+                          Llena, edita y ve tu quiniela.
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Link>
+                </Card>
+                <Card sx={{ maxWidth: "70%" }}>
+                  <Link passHref href={`/marcadores`}>
+                    <CardActionArea>
+                      <CardMedia
+                        component="img"
+                        image="/resultados.jpg"
+                        alt="quiniela"
+                      />
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                          Marcadores
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          Ver la tabla de posiciones.
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Link>
+                </Card>
+              </div>
             </div>
           ) : (
             <div className="animate__animated animate__fadeIn animate__delay-2s  bg-[url('/cup.jpg')] bg-cover   h-screen">

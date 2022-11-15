@@ -72,7 +72,7 @@ const Layout = ({ children }) => {
       <main>{children}</main>
 
       <div className={router.pathname !== "/" && "hidden"}>
-        <div className=" m-8">
+        <div className=" m-8 mt-28">
           <div
             className=" mb-16 mt-8"
             id="sportmonks-widget"
