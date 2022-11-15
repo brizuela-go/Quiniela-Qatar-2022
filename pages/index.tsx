@@ -77,7 +77,7 @@ export default function Home() {
       {_user && !userLoading && (
         <div className="">
           {userIsPremium ? (
-            <div className="animate__animated animate__fadeIn animate__delay-1s">
+            <div className="animate__animated animate__fadeIn ">
               <div className="sm:flex sm:justify-center sm:flex-row  flex-col m-12  gap-x-12 space-y-6 sm:space-y-0">
                 <div className=" bg-white shadow-lg  rounded-xl p-4">
                   <div className="flex justify-between space-x-5">
