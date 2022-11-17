@@ -61,10 +61,10 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    if (!_user && !userLoading) {
+    if (!_user) {
       router.push("/login");
     }
-  }, [_user, userLoading, router]);
+  }, [_user, router]);
 
   async function signOut() {
     await firebase.auth().signOut();
