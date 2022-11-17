@@ -70,7 +70,7 @@ export default function Navbar({ _user, userPhoto }) {
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <Link
-                        prefetch={true}
+                        shallow={true}
                         passHref
                         href={
                           item.href === "/quiniela/[user]"
