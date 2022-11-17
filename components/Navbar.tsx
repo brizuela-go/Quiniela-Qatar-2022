@@ -16,7 +16,7 @@ function classNames(...classes) {
 export default function Navbar({ _user, userPhoto }) {
   const navigation = [
     { name: "Inicio", href: "/", current: true },
-    { name: "Mi Quiniela", href: `/quiniela/[user]`, current: false },
+    { name: "Quiniela", href: `/quiniela/[user]`, current: false },
     { name: "Marcadores", href: "/marcadores", current: false },
   ];
 
