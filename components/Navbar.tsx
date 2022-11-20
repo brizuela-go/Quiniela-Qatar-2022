@@ -45,7 +45,7 @@ export default function Navbar({ _user, userPhoto }) {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <Link href={"/"} prefetch={true} passHref>
+                  <Link href={"/"} passHref>
                     <div className="block h-8 w-auto lg:hidden cursor-pointer">
                       <Image
                         width={38}
@@ -55,7 +55,7 @@ export default function Navbar({ _user, userPhoto }) {
                       />
                     </div>
                   </Link>
-                  <Link passHref prefetch={true} href={"/"}>
+                  <Link passHref href={"/"}>
                     <div className="hidden h-8 w-auto lg:block cursor-pointer">
                       <Image
                         width={38}
@@ -70,7 +70,6 @@ export default function Navbar({ _user, userPhoto }) {
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <Link
-                        prefetch={true}
                         passHref
                         href={
                           item.href === "/quiniela/[user]"
@@ -161,7 +160,6 @@ export default function Navbar({ _user, userPhoto }) {
             <div className="space-y-1 px-2 pt-2 pb-3">
               {navigation.map((item) => (
                 <Link
-                  prefetch={true}
                   passHref
                   href={
                     item.href === "/quiniela/[user]"

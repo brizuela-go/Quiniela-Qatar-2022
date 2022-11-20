@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className="p-4 bg-white md:px-6 md:py-8 mt-44 ">
       <div className="sm:flex sm:items-center sm:justify-around">
-        <Link scroll prefetch={true} href="/">
+        <Link scroll href="/">
           <a className="flex justify-center items-center mb-4 sm:mb-0">
             <Image
               width={32}
@@ -19,7 +19,7 @@ const Footer = () => {
         </Link>
         <ul className="flex flex-wrap items-center justify-center mb-6 text-sm text-gray-500 sm:mb-0 ">
           <li>
-            <Link prefetch={true} href="https://wa.me/522213321516">
+            <Link href="https://wa.me/522213321516">
               <a className="hover:underline">Contacto</a>
             </Link>
           </li>

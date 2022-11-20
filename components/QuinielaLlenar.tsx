@@ -2,19 +2,19 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { GiSoccerField } from "react-icons/gi";
 import { BiTimeFive } from "react-icons/bi";
-import firebase from "../firebase/firebaseClient";
+// import firebase from "../firebase/firebaseClient";
 import { useRouter } from "next/router";
-import toast, { Toaster } from "react-hot-toast";
-import EditIcon from "@mui/icons-material/Edit";
-import SaveIcon from "@mui/icons-material/Save";
-import Fab from "@mui/material/Fab";
+// import toast, { Toaster } from "react-hot-toast";
+// import EditIcon from "@mui/icons-material/Edit";
+// import SaveIcon from "@mui/icons-material/Save";
+// import Fab from "@mui/material/Fab";
 import { useStateContext } from "../context/PremiumContext";
-import Tooltip from "@mui/material/Tooltip";
+// import Tooltip from "@mui/material/Tooltip";
 
 const QuinielaLlenar = ({ data, locales, visitantes, userDetails, flags }) => {
-  const [local, setLocal] = useState(locales);
-  const [visitante, setVisitante] = useState(visitantes);
-  const [edit, setEdit] = useState(true);
+  // const [local, setLocal] = useState(locales);
+  // const [visitante, setVisitante] = useState(visitantes);
+  // const [edit, setEdit] = useState(true);
 
   const { _user, userIsPremium } = useStateContext();
 
@@ -25,61 +25,61 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails, flags }) => {
   // get user name from firebase
   const userName = userDetails?.name;
 
-  const resultados = {};
+  // const resultados = {};
 
-  async function saveResults(e) {
-    e.preventDefault();
-    const decodedToken = await firebase.auth().currentUser?.getIdTokenResult();
-    const uid = decodedToken?.claims?.user_id;
-    const db = firebase.firestore();
+  // async function saveResults(e) {
+  //   e.preventDefault();
+  //   const decodedToken = await firebase.auth().currentUser?.getIdTokenResult();
+  //   const uid = decodedToken?.claims?.user_id;
+  //   const db = firebase.firestore();
 
-    const quiniela = db
-      .collection("users")
-      .doc(uid)
-      .collection("quiniela")
-      .doc("resultados");
+  //   const quiniela = db
+  //     .collection("users")
+  //     .doc(uid)
+  //     .collection("quiniela")
+  //     .doc("resultados");
 
-    quiniela.set({
-      resultados: resultados,
-    });
-    setEdit(true);
-    toast.success("Resultados Guardados con Éxito");
-  }
+  //   quiniela.set({
+  //     resultados: resultados,
+  //   });
+  //   setEdit(true);
+  //   toast.success("Resultados Guardados con Éxito");
+  // }
 
-  async function editResults() {
-    setEdit(false);
-    toast("Modo Edición", {
-      icon: "🖊️",
-    });
-  }
+  // async function editResults() {
+  //   setEdit(false);
+  //   toast("Modo Edición", {
+  //     icon: "🖊️",
+  //   });
+  // }
 
-  const handleChangeLocal = (e, i) => {
-    const { value, name } = e.target;
+  // const handleChangeLocal = (e, i) => {
+  //   const { value, name } = e.target;
 
-    const newState = [...local];
-    newState[i] = {
-      ...newState[i],
-      [name]: value,
-    };
+  //   const newState = [...local];
+  //   newState[i] = {
+  //     ...newState[i],
+  //     [name]: value,
+  //   };
 
-    setLocal(newState);
-  };
+  //   setLocal(newState);
+  // };
 
-  const handleChangeVisitante = (event, i) => {
-    const { value, name } = event.target;
+  // const handleChangeVisitante = (event, i) => {
+  //   const { value, name } = event.target;
 
-    const newState = [...visitante];
-    newState[i] = {
-      ...newState[i],
-      [name]: value,
-    };
+  //   const newState = [...visitante];
+  //   newState[i] = {
+  //     ...newState[i],
+  //     [name]: value,
+  //   };
 
-    setVisitante(newState);
-  };
+  //   setVisitante(newState);
+  // };
 
-  for (let i = 1; i < local.length; i++) {
-    resultados[i] = { local: local[i], visitante: visitante[i] };
-  }
+  // for (let i = 1; i < local.length; i++) {
+  //   resultados[i] = { local: local[i], visitante: visitante[i] };
+  // }
 
   useEffect(() => {
     if (userIsPremium === false) {
@@ -89,31 +89,15 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails, flags }) => {
 
   return (
     <>
-      <form onSubmit={saveResults}>
-        <Toaster />
+      <div>
         {_user?.uid !== uid && (
           <div className="flex justify-center text-center">
             <h1 className="text-xl font-bold mt-10">Quiniela de {userName} </h1>
           </div>
         )}
         {_user?.uid === uid && (
-          <div className="flex flex-row lg:justify-end   mb-10 mt-20 gap-6 lg:mr-10 justify-center">
-            <Fab
-              variant="extended"
-              className="edit-button"
-              onClick={() => editResults()}
-            >
-              <EditIcon sx={{ mr: 1 }} />
-              Editar
-            </Fab>
-            <Fab
-              variant="extended"
-              type="submit"
-              className=" bg-gradient-to-r from-green-600 to-green-700 text-white save-button"
-            >
-              <SaveIcon sx={{ mr: 1 }} className="text-white" />
-              Guardar
-            </Fab>
+          <div className="flex justify-center text-center">
+            <h1 className="text-xl font-bold mt-10">Tu quiniela </h1>
           </div>
         )}
         <div className={"rounded-lg bg-white shadow-lg lg:m-8 m-3 "}>
@@ -141,36 +125,25 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails, flags }) => {
                             {partido["Group"]}
                           </h4>
                           <div className="grid grid-cols-5">
-                            <Tooltip
-                              disableFocusListener
-                              title={
-                                edit &&
-                                _user?.uid === uid &&
-                                `Haz click en "Editar" para poder modificar los resultados`
-                              }
-                            >
-                              <input
-                                id={i}
-                                type="number"
-                                value={parseInt(
-                                  local[partido["partido"]]?.[
-                                    partido["HomeTeam"]
-                                  ]
-                                )}
-                                title={"Haz click en editar para modificar"}
-                                className="w-12 h-7 pr-0 pl-2 text-center border lg:-ml-8 ml-ipad shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none "
-                                disabled={edit}
-                                placeholder="#"
-                                name={partido["HomeTeam"]}
-                                required
-                                step={1}
-                                min={0}
-                                max={20}
-                                onChange={(e) =>
-                                  handleChangeLocal(e, partido["partido"])
-                                }
-                              />
-                            </Tooltip>
+                            <input
+                              id={i}
+                              type="number"
+                              value={parseInt(
+                                locales[partido["partido"]]?.[
+                                  partido["HomeTeam"]
+                                ]
+                              )}
+                              className="w-12 h-7 pr-0 pl-2 text-center border lg:-ml-8 ml-ipad shadow-lg border-double border-gray-400 font-semibold disabled:shadow-md disabled:bg-gray-100 disabled:border-none "
+                              disabled //={edit}
+                              placeholder="#"
+                              name={partido["HomeTeam"]}
+                              required
+                              step={1}
+                              min={0}
+                              max={20}
+                              // onChange={(e) => handleChangeLocal(e, i)}
+                            />
+
                             <div className="flex justify-end gap-4 -ml-20 ">
                               <h4 className="flex justify-self-end  text-end">
                                 {partido["HomeTeam"]}
@@ -200,35 +173,25 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails, flags }) => {
                               </div>
                               <h4>{partido["AwayTeam"]}</h4>
                             </div>
-                            <Tooltip
-                              disableFocusListener
-                              title={
-                                edit &&
-                                _user?.uid === uid &&
-                                `Haz click en "Editar" para poder modificar los resultados`
-                              }
-                            >
-                              <input
-                                id={i}
-                                type="number"
-                                className="w-12 h-7 pr-0 pl-2 ml-20  text-center shadow-lg border-double border-gray-400 font-medium disabled:shadow-md disabled:bg-gray-100 disabled:border-none"
-                                placeholder="#"
-                                value={parseInt(
-                                  visitante[partido["partido"]]?.[
-                                    partido["AwayTeam"]
-                                  ]
-                                )}
-                                name={partido["AwayTeam"]}
-                                step={1}
-                                min={0}
-                                max={20}
-                                onChange={(e) =>
-                                  handleChangeVisitante(e, partido["partido"])
-                                }
-                                disabled={edit}
-                                required
-                              />
-                            </Tooltip>
+
+                            <input
+                              id={i}
+                              type="number"
+                              className="w-12 h-7 pr-0 pl-2 ml-20  text-center shadow-lg border-double border-gray-400 font-semibold disabled:shadow-md disabled:bg-gray-100 disabled:border-none"
+                              placeholder="#"
+                              value={parseInt(
+                                visitantes[partido["partido"]]?.[
+                                  partido["AwayTeam"]
+                                ]
+                              )}
+                              name={partido["AwayTeam"]}
+                              step={1}
+                              min={0}
+                              max={20}
+                              disabled //={edit}
+                              required
+                              // onChange={(e) => handleChangeVisitante(e, i)}
+                            />
                           </div>
                           <div className=" justify-self-end">
                             <h4>{partido["Location"]}</h4>
@@ -255,35 +218,25 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails, flags }) => {
                                 {partido["HomeTeam"]}
                               </h4>
                             </div>
-                            <Tooltip
-                              disableFocusListener
-                              title={
-                                edit &&
-                                _user?.uid === uid &&
-                                `Haz click en "Editar" para poder modificar los resultados`
-                              }
-                            >
-                              <input
-                                id={i}
-                                type="number"
-                                value={parseInt(
-                                  local[partido["partido"]]?.[
-                                    partido["HomeTeam"]
-                                  ]
-                                )}
-                                className="w-12 border  text-center shadow-xl border-double border-gray-400 font-medium disabled:shadow-lg disabled:bg-gray-200 disabled:border-none"
-                                disabled={edit}
-                                placeholder="#"
-                                name={partido["HomeTeam"]}
-                                required
-                                step={1}
-                                min={0}
-                                max={20}
-                                onChange={(e) =>
-                                  handleChangeLocal(e, partido["partido"])
-                                }
-                              />
-                            </Tooltip>
+
+                            <input
+                              id={i}
+                              type="number"
+                              value={parseInt(
+                                locales[partido["partido"]]?.[
+                                  partido["HomeTeam"]
+                                ]
+                              )}
+                              className="w-12 border  text-center shadow-xl border-double border-gray-400 font-semibold disabled:shadow-xl disabled:bg-gray-200 disabled:border-none disabled:text-black"
+                              disabled //={edit}
+                              placeholder="#"
+                              name={partido["HomeTeam"]}
+                              required
+                              step={1}
+                              min={0}
+                              max={20}
+                              // onChange={(e) => handleChangeLocal(e, i)}
+                            />
                           </div>
                           <div className="flex justify-between">
                             <div className="flex justify-start  gap-6 ">
@@ -300,35 +253,25 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails, flags }) => {
                                 {partido["AwayTeam"]}
                               </h4>
                             </div>
-                            <Tooltip
-                              disableFocusListener
-                              title={
-                                edit &&
-                                _user?.uid === uid &&
-                                `Haz click en "Editar" para poder modificar los resultados`
-                              }
-                            >
-                              <input
-                                id={i}
-                                type="number"
-                                value={parseInt(
-                                  visitante[partido["partido"]]?.[
-                                    partido["AwayTeam"]
-                                  ]
-                                )}
-                                className="w-12 border  text-center shadow-xl border-double border-gray-400 font-medium disabled:shadow-lg disabled:bg-gray-200 disabled:border-none"
-                                disabled={edit}
-                                placeholder="#"
-                                name={partido["AwayTeam"]}
-                                required
-                                step={1}
-                                min={0}
-                                max={20}
-                                onChange={(e) =>
-                                  handleChangeVisitante(e, partido["partido"])
-                                }
-                              />
-                            </Tooltip>
+
+                            <input
+                              id={i}
+                              type="number"
+                              value={parseInt(
+                                visitantes[partido["partido"]]?.[
+                                  partido["AwayTeam"]
+                                ]
+                              )}
+                              className="w-12 border  text-center shadow-xl border-double border-gray-400 font-semibold disabled:shadow-xl disabled:bg-gray-200 disabled:border-none disabled:text-black"
+                              disabled //={edit}
+                              placeholder="#"
+                              name={partido["AwayTeam"]}
+                              required
+                              step={1}
+                              min={0}
+                              max={20}
+                              // onChange={(e) => handleChangeVisitante(e, i)}
+                            />
                           </div>
 
                           <div className="flex justify-center gap-4 text-sm">
@@ -359,27 +302,7 @@ const QuinielaLlenar = ({ data, locales, visitantes, userDetails, flags }) => {
             </div>
           ))}
         </div>
-        {_user?.uid === uid && (
-          <div className="flex flex-row    my-10 gap-6 lg:mr-10 justify-center">
-            <Fab
-              variant="extended"
-              className="edit-button"
-              onClick={() => editResults()}
-            >
-              <EditIcon sx={{ mr: 1 }} />
-              Editar
-            </Fab>
-            <Fab
-              variant="extended"
-              type="submit"
-              className=" bg-gradient-to-r from-green-600 to-green-700 save-button"
-            >
-              <SaveIcon sx={{ mr: 1 }} className="text-white" />
-              Guardar
-            </Fab>
-          </div>
-        )}
-      </form>
+      </div>
     </>
   );
 };

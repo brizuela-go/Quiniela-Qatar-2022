@@ -20,45 +20,45 @@ export default function Login({}: Props): ReactElement {
       .auth()
       .signInWithPopup(new firebase.auth.GoogleAuthProvider());
 
-    // check if user doc exists
-    const userDoc = await firebase
-      .firestore()
-      .collection("users")
-      .doc(userCredentials.user.uid)
-      .get();
+    // // check if user doc exists
+    // const userDoc = await firebase
+    //   .firestore()
+    //   .collection("users")
+    //   .doc(userCredentials.user.uid)
+    //   .get();
 
-    if (!userDoc.exists) {
-      // create user doc
-      await firebase
-        .firestore()
-        .collection("users")
-        .doc(userCredentials.user.uid)
-        .set({
-          uid: userCredentials.user.uid,
-          email: userCredentials.user.email,
-          name: userCredentials.user.displayName,
-          provider: userCredentials.user.providerData[0].providerId,
-          photoUrl: userCredentials.user.photoURL,
-          puntos: 0,
-        });
-    }
+    // if (!userDoc.exists) {
+    //   // create user doc
+    //   await firebase
+    //     .firestore()
+    //     .collection("users")
+    //     .doc(userCredentials.user.uid)
+    //     .set({
+    //       uid: userCredentials.user.uid,
+    //       email: userCredentials.user.email,
+    //       name: userCredentials.user.displayName,
+    //       provider: userCredentials.user.providerData[0].providerId,
+    //       photoUrl: userCredentials.user.photoURL,
+    //       puntos: 0,
+    //     });
+    // }
 
-    // check if collection quiniela exists
-    const quinielaRef = firebase
-      .firestore()
-      .collection("users")
-      .doc(userCredentials.user.uid)
-      .collection("quiniela")
-      .doc("resultados");
+    // // check if collection quiniela exists
+    // const quinielaRef = firebase
+    //   .firestore()
+    //   .collection("users")
+    //   .doc(userCredentials.user.uid)
+    //   .collection("quiniela")
+    //   .doc("resultados");
 
-    const doc = await quinielaRef.get();
+    // const doc = await quinielaRef.get();
 
-    if (!doc.exists) {
-      quinielaRef.set({
-        resultados: quiniela,
-      });
-    } else {
-    }
+    // if (!doc.exists) {
+    //   quinielaRef.set({
+    //     resultados: quiniela,
+    //   });
+    // } else {
+    // }
   }
 
   async function signInWithEmail(e) {
