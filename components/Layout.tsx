@@ -26,22 +26,22 @@ const Layout = ({ children }) => {
     })
     .catch((error) => {});
 
-  useEffect(() => {
-    const script = document.createElement("script");
+  // useEffect(() => {
+  //   const script = document.createElement("script");
 
-    script.src = "https://widgets.sportmonks.com/js/world-cup/livescore.js";
-    script.async = true;
-    script.type = "text/javascript";
-    document.body.appendChild(script);
+  //   script.src = "https://widgets.sportmonks.com/js/world-cup/livescore.js";
+  //   script.async = true;
+  //   script.type = "text/javascript";
+  //   document.body.appendChild(script);
 
-    const script2 = document.createElement("script");
+  //   const script2 = document.createElement("script");
 
-    script2.src =
-      "https://widgets.sportmonks.com/js/world-cup/standingsSlider.js";
-    script.async = true;
-    script.type = "text/javascript";
-    document.body.appendChild(script2);
-  }, []);
+  //   script2.src =
+  //     "https://widgets.sportmonks.com/js/world-cup/standingsSlider.js";
+  //   script.async = true;
+  //   script.type = "text/javascript";
+  //   document.body.appendChild(script2);
+  // }, []);
 
   return (
     <body>
