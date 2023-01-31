@@ -5,7 +5,6 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import firebase from "../firebase/firebaseClient";
 import { useStateContext } from "../context/PremiumContext";
-import Script from "next/script";
 
 const Layout = ({ children }) => {
   const [userPhoto, setUserPhoto] = React.useState("");
